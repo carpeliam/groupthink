@@ -4,6 +4,9 @@ tmp/*
 TAGS
 *~
 .#*
+Capfile
+config/deploy.rb
+config/database.yml
 schema/schema.rb
 schema/*_structure.sql
 schema/*.sqlite3
