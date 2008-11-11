@@ -2,8 +2,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a group exists" do
   Group.all.destroy!
-  request(resource(:groups), :method => "POST", 
-    :params => { :group => Group.generate_attributes })
+  Group.generate
 end
 
 given "a group user is logged in" do
