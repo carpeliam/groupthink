@@ -1,0 +1,17 @@
+development: &defaults
+  adapter:  mysql
+  database: groupthink_dev
+  username: groupthink
+  password: groupthink
+  host: localhost
+ 
+test:
+  <<:       *defaults
+  database: groupthink_test
+ 
+production:
+  <<:       *defaults
+  database: groupthink
+ 
+rake:
+  <<: *defaults

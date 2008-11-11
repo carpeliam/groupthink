@@ -1,0 +1,7 @@
+%h1= show_diff(@document.title, @version.title)
+
+= show_diff(@document.body, @version.body)
+
+= partial :versions
+
+= link_to 'Back', resource(@group, @document)

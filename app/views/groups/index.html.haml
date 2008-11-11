@@ -1,0 +1,14 @@
+%h1
+  Groups controller, index action
+%table
+  %tr
+    %th Name
+  - for group in @groups
+    %tr
+      %td= group.name
+      %td
+        = link_to 'Show', url(:group, group)
+      %td
+        = link_to 'Edit', url(:edit_group,  group)
+
+= link_to 'New', url(:new_group)

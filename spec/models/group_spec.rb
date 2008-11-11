@@ -1,0 +1,38 @@
+require File.join( File.dirname(__FILE__), '..', "spec_helper" )
+
+describe Group do
+  it "should be invalid without a name" do
+    group = Group.make :name => nil
+    group.should_not be_valid
+    group.name = Group.make.name
+    group.should be_valid
+  end
+  
+  it "should have a name 100chars or less" do
+    group = Group.make :name => 'a' * 101
+    group.should_not be_valid
+    group.name = 'a' * 100
+    group.should be_valid
+  end
+  
+  it "should be invalid without a leader" do
+    group = Group.make :leader => nil
+    group.should_not be_valid
+    group.leader = group.users.first
+    group.should be_valid
+  end
+  
+  it "should be valid if it has all attributes" do
+    group = Group.make
+    group.should be_valid
+  end
+  
+  it "leader should be a member" do
+    group = Group.make
+    group.users.delete group.leader
+    group.should_not be_valid
+    group.users << group.leader
+    group.should be_valid
+  end
+
+end

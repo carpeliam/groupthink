@@ -1,0 +1,8 @@
+path: /u/apps/groupthink
+adapter: thin
+environment: production
+port: 5000
+servers: 1
+user: carpeliam
+group: carpeliam
+logging: info

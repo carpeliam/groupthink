@@ -1,0 +1,6 @@
+%h1= @user.login
+
+
+= link_to('Edit',  url(:edit_user,  @user)) if @user == session.user
+|
+= link_to 'Back', url(:users)

@@ -1,0 +1,13 @@
+%h1
+  Groups controller, edit action
+
+= error_messages_for @group
+
+= form_for(@group, :action => url(:group, @group)) do
+  %p
+    = text_field :name, :label => 'Name'
+    = submit "Update"
+
+= link_to 'Show', url(:group, @group)
+|
+= link_to 'Back', url(:groups)

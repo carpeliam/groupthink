@@ -1,0 +1,10 @@
+%h1 Groups controller, new action
+
+= error_messages_for @group
+
+= form_for(@group, :action => resource(:groups) ) do
+  %p
+    = text_field :name, :label => 'Name'
+    = submit "Create"
+
+= link_to 'Back', resource(:groups)

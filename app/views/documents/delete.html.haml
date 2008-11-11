@@ -1,0 +1,11 @@
+%h1== Delete #{@document.title}
+
+Are you sure?
+
+= error_messages_for :document
+
+= form_for(@document, :action => resource(@group, @document), :method => :delete) do
+  %p
+    = submit "Yes, I'm sure"
+
+= link_to 'Back', resource(@group, @document)

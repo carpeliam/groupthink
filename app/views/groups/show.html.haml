@@ -1,0 +1,24 @@
+%h1= @group.name
+
+%p
+  %b
+    Members
+  %ul
+    - for user in @group.users
+      %li
+        = user.login
+        = '*' if user == @group.leader
+
+%p= link_to 'Documents', resource(@group, :documents)
+
+- if session.authenticated?
+  - if @group.users.include? session.user
+    = form_for(@group, :action => url(:leave_group, @group), :method => :put) do
+      = submit 'Leave this group :('
+  - else
+    = form_for(@group, :action => url(:join_group, @group), :method => :put) do
+      = submit 'Join this group :)'
+
+= link_to 'Edit',  url(:edit_group,  @group)
+|
+= link_to 'Back', url(:groups)

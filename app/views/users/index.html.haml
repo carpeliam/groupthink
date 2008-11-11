@@ -1,0 +1,15 @@
+%h1
+  Users controller, index action
+
+%table
+  %tr
+    %th Name
+  - for user in @users
+    %tr
+      %td= user.login
+      %td
+        = link_to 'Show', url(:user, user)
+      %td
+        = link_to('Edit', url(:edit_user,  user)) if user == session.user
+
+= link_to 'New', url(:new_user)

@@ -1,0 +1,18 @@
+%h1== #{@group.name} Documents
+
+%table
+  %tr
+    %th Title
+  %tr
+  - for document in @documents
+    %tr
+      %td
+        = document.title
+      %td
+        = link_to 'Show', resource(@group, document)
+      %td
+        = link_to 'Edit', resource(@group, document, :edit)
+      %td
+        = delete_button resource(@group, document)
+
+= link_to 'New', resource(@group, :documents, :new)

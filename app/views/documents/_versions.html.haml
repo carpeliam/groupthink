@@ -1,0 +1,15 @@
+- unless @document.versions.empty?
+  %p
+    Version
+    - @document.versions.size.times do |i|
+      - j = i + 1
+      - if params[:version] and params[:version].to_i.eql? j
+        = j
+      - else
+        = link_to j, resource(@group, @document, :version => j)
+      |
+    - if params[:version]
+      = link_to 'current', resource(@group, @document)
+    - else
+      current
+    = "| #{link_to 'diff', resource(@group, @document, :diff, :version => params[:version])}" if params[:version]

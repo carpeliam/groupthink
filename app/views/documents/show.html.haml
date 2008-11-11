@@ -1,0 +1,11 @@
+%h1= @version.title
+%p
+  %i== edited by #{User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
+%p= @version.body
+
+= partial :versions
+
+
+= link_to 'Edit',  resource(@group, @document, :edit)
+|
+= link_to 'Back', resource(@group, :documents)
