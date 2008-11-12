@@ -22,6 +22,12 @@ describe Group do
     group.should be_valid
   end
   
+  it "should delete all child categories when it's deleted" do
+    cat = Category.generate
+    cat.group.destroy
+    Category.get(cat.id).should be_nil
+  end
+  
   it "should be valid if it has all attributes" do
     group = Group.make
     group.should be_valid

@@ -22,12 +22,12 @@ describe Document do
     doc.should be_valid
   end
   
-  it "should be invalid without a group" do
-    doc = Document.make :group => nil
+  it "should be invalid without a category" do
+    doc = Document.make :category => nil
     doc.should_not be_valid
-    g = Group.generate
-    g.users << doc.author
-    doc.group = g
+    cat = Category.generate
+    cat.group.users << doc.author
+    doc.category = cat
     doc.should be_valid
   end
   
@@ -53,7 +53,7 @@ describe Document do
     their_group = Group.make
     doc = Document.make
     doc.author = their_group.leader
-    doc.group = our_group
+    doc.category.group = our_group
     doc.should_not be_valid
     doc.author = our_group.leader
     doc.should be_valid

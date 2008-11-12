@@ -21,13 +21,22 @@ Group.fixture(:request_safe) {{
   :name => Faker::Company.name[0,100]
 }}
 
+Category.fixture {{
+  :name => Faker::Lorem.words.join(' '),
+  :group => Group.make
+}}
+
+Category.fixture(:request_safe) {{
+  :name => Faker::Lorem.words.join(' ')
+}}
+
 Document.fixture {
-  group = Group.make
+  category = Category.make
   {
     :title => Faker::Lorem.sentence[0,100],
     :body => Faker::Lorem.paragraph,
-    :group => group,
-    :author => group.leader
+    :category => category,
+    :author => category.group.leader
   }
 }
 

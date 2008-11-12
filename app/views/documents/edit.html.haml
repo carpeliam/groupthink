@@ -1,9 +1,11 @@
-%h1
-  Documents controller, edit action
+-# TODO replace group with @category.group when DM works
+- group = Group.get @category.group.id
+
+%h1== Edit #{@document.title}
 
 = error_messages_for @document
 
-= form_for(@document, :action => resource(@group, @document)) do
+= form_for(@document, :action => resource(group, @category, @document)) do
   %p
     = text_field :title, :label => 'Title'
   %p
@@ -11,6 +13,6 @@
   %p
     = submit "Update"
 
-= link_to 'Show', resource(@group, @document)
+= link_to 'Show', resource(group, @category, @document)
 |
-= link_to 'Back', resource(@group, :documents)
+= link_to 'Back', resource(group, @category, :documents)

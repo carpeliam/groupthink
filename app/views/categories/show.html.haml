@@ -1,0 +1,8 @@
+%h1
+  = @category.name
+
+%p= link_to 'Documents', resource(@group, @category, :documents)
+
+= link_to 'Edit',  resource(@group, @category, :edit)
+|
+= link_to 'Back', resource(@group, :categories)

@@ -9,7 +9,7 @@
         = user.login
         = '*' if user == @group.leader
 
-%p= link_to 'Documents', resource(@group, :documents)
+%p= link_to 'Categories', resource(@group, :categories)
 
 - if session.authenticated?
   - if @group.users.include? session.user

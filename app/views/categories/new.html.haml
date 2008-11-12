@@ -1,0 +1,15 @@
+%h1 Categories controller, new action
+
+%p 
+  Edit this file in 
+  %tt app/views/categories/new.html.erb
+
+= error_messages_for :category
+
+= form_for(@category, :action => resource(@group, :categories) ) do
+  %p
+    = text_field :name, :label => 'Name'
+  %p
+    = submit "Create"
+
+= link_to 'Back', resource(@group, :categories)

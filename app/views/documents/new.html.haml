@@ -1,8 +1,11 @@
-%h1== New doc for #{@group.name}
+%h1== New doc for #{@category.name}
+
+-# TODO replace group with @category.group when DM works
+- @group = Group.get @category.group.id
 
 = error_messages_for @document
 
-= form_for(@document, :action => resource(@group, :documents) ) do
+= form_for(@document, :action => resource(@group, @category, :documents) ) do
 
   %p
     = text_field :title, :label => 'Title'
@@ -12,4 +15,4 @@
   %p
     = submit "Create"
 
-= link_to 'Back', resource(@group, :documents)
+= link_to 'Back', resource(@group, @category, :documents)

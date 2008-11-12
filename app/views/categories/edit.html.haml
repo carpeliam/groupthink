@@ -1,0 +1,15 @@
+%h1
+  Categories controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/categories/edit.html.erb
+= error_messages_for :category
+
+= form_for(@category, :action => resource(@group, @category)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', resource(@group, @category)
+|
+= link_to 'Back', resource(@group, :categories)

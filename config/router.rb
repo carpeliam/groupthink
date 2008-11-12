@@ -31,7 +31,9 @@ Merb::Router.prepare do
   resources :users
   
   resources :groups, :member => { :join => :put, :leave => :put } do
-    resources :documents, :member => { :diff => :get }
+    resources :categories do
+      resources :documents, :member => { :diff => :get }
+    end
   end
   
   # RESTful routes

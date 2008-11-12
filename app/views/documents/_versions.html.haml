@@ -1,3 +1,6 @@
+-# TODO replace group with @category.group when DM works
+- @group = Group.get @category.group.id
+
 - unless @document.versions.empty?
   %p
     Version
@@ -6,10 +9,10 @@
       - if params[:version] and params[:version].to_i.eql? j
         = j
       - else
-        = link_to j, resource(@group, @document, :version => j)
+        = link_to j, resource(group, @category, @document, :version => j)
       |
     - if params[:version]
-      = link_to 'current', resource(@group, @document)
+      = link_to 'current', resource(group, @category, @document)
     - else
       current
-    = "| #{link_to 'diff', resource(@group, @document, :diff, :version => params[:version])}" if params[:version]
+    = "| #{link_to 'diff', resource(group, @category, @document, :diff, :version => params[:version])}" if params[:version]

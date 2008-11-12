@@ -1,10 +1,10 @@
 class Documents < Application
   before :ensure_authenticated, :exclude => [:index, :show, :diff]
   # provides :xml, :yaml, :js
-  before :get_group
+  before :get_category
 
   def index
-    @documents = (@group.nil?) ? Document.all : @group.documents
+    @documents = (@category.nil?) ? Document.all : @category.documents
     display @documents
   end
 
@@ -25,7 +25,7 @@ class Documents < Application
 
   def new
     only_provides :html
-    @document = Document.new
+    @document = @category.documents.new
     display @document
   end
 
@@ -37,10 +37,13 @@ class Documents < Application
   end
 
   def create(document)
-    @document = @group.documents.new(document)
+    @document = @category.documents.new(document)
     @document.author = session.user
     if @document.save
-      redirect resource(@group, @document), :message => {:notice => "Document was successfully created"}
+      #TODO replace group with @category.group when DM works
+      group = Group.get @category.group.id
+      redirect resource(group, @category, @document),
+        :message => {:notice => "Document was successfully created"}
     else
       message[:error] = "Document failed to be created"
       render :new
@@ -52,7 +55,9 @@ class Documents < Application
     raise NotFound unless @document
     @document.author = session.user
     if @document.update_attributes(document)
-       redirect resource(@group, @document)
+      #TODO replace group with @category.group when DM works
+      group = Group.get @category.group.id
+      redirect resource(group, @category, @document)
     else
       display @document, :edit
     end
@@ -62,7 +67,9 @@ class Documents < Application
     @document = Document.get(id)
     raise NotFound unless @document
     if @document.destroy
-      redirect resource(@group, :documents)
+      #TODO replace group with @category.group when DM works
+      group = Group.get @category.group.id
+      redirect resource(group, @category, :documents)
     else
       raise InternalServerError
     end
@@ -73,9 +80,9 @@ class Documents < Application
   end
   
   private
-  def get_group
-    @group = Group.get(params[:group_id])
-    raise NotFound unless @group
+  def get_category
+    @category = Category.get(params[:category_id])
+    raise NotFound unless @category
   end
 
 end # Documents

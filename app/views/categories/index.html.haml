@@ -1,0 +1,18 @@
+%h1
+  Categories controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/categories/index.html.erb
+%table
+  %tr
+    %th Name
+  - for category in @categories
+    %tr
+      %td= category.name
+      %td
+        = link_to 'Show', resource(@group, category)
+      %td
+        = link_to 'Edit', resource(@group,  category, :edit)
+
+= link_to 'New', resource(@group, :categories, :new)

@@ -5,7 +5,9 @@
 
 = partial :versions
 
+-# TODO replace group with @category.group when DM works
+- group = Group.get @category.group.id
 
-= link_to 'Edit',  resource(@group, @document, :edit)
+= link_to 'Edit',  resource(group, @category, @document, :edit)
 |
-= link_to 'Back', resource(@group, :documents)
+= link_to 'Back', resource(group, @category, :documents)

@@ -40,7 +40,7 @@ Merb::Test.add_helpers do
   
   def login_as_group_user
     user = login
-    Group.all.destroy!
+    Group.all.each {|g| g.destroy }
     create_group
     return user
   end
@@ -55,13 +55,21 @@ Merb::Test.add_helpers do
     return group
   end
   
+  def create_category
+    Category.generate :name => 'public', :group => get_group
+  end
+  
+  def get_category
+    category = create_category unless category = get_group.categories.first(:name => 'public')
+    return category
+  end
+  
   def create_document
-    group = get_group
-    Document.generate :author => group.leader, :group => group
+    Document.generate :title => 'Groupthink rocks', :author => get_group.leader, :category => get_category
   end
   
   def get_document
-    document = create_document unless document = Document.first(:title => 'Groupthink rocks')
+    document = create_document unless document = get_category.documents.first(:title => 'Groupthink rocks')
     return document
   end
   
@@ -69,4 +77,12 @@ end
 
 given "a user is logged in" do
   login
+end
+
+given "a group user is logged in" do
+  login_as_group_user
+end
+
+given "no user is logged in" do
+  session.abandon!
 end
