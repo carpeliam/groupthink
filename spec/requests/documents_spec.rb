@@ -53,12 +53,17 @@ context "when logged in as group member", :given => "a group user is logged in" 
   describe "resource(@group, @category, @document)", :given => "a document exists" do
     describe "PUT" do
       before(:each) do
+        @version_count = get_document.versions.size
         @response = request(resource(get_group, get_category, get_document), :method => "PUT", 
           :params => {:document => Document.generate_attributes(:request_safe).merge(:title => 'Groupthink rocks') })
       end
     
-      it "redirect to the article show action" do
+      it "redirects to the show action" do
         @response.should redirect_to(resource(get_group, get_category, get_document))
+      end
+      
+      it "increments the version count" do
+        get_document.versions.size.should == @version_count + 1
       end
     end
     
@@ -117,6 +122,24 @@ describe "resource(@group, @category, @document)", :given => "a document exists"
       @category = Category.get @document.category.id
       @group = Group.get @category.group.id
       @response = request(resource(@group, @category, @document))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+end
+
+describe "resource(@group, @category, @document, :diff)", :given => "a document exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @document = Document.first
+      @document.body += 'a'
+      @document.save # create a version
+      @category = Category.get @document.category.id
+      @group = Group.get @category.group.id
+      @response = request(resource(@group, @category, @document, :diff, :version => 1))
     end
   
     it "responds successfully" do
