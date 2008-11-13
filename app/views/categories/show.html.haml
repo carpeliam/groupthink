@@ -2,6 +2,7 @@
   = @category.name
 
 %p= link_to 'Documents', resource(@group, @category, :documents)
+%p= link_to 'Artifacts', resource(@group, @category, :artifacts)
 
 = link_to 'Edit',  resource(@group, @category, :edit)
 |

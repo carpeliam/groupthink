@@ -2,4 +2,13 @@ h1. groupthink.
 
 It's a resource management system for groups. Documents are like private wiki items in the sense that they have history, and you can run diffs on them. They don't, however, support any kind of crazy markup language business at the moment.
 
+h2. file uploading with dm-paperclip
+
+works. Haven't figured out how to write tests for this, which also means that I don't have any validations for files yet. But that's what happens when we're just getting off the ground. Files are called "artifacts", couldn't really think of a better name.
+
+h2. categorize your documents/files
+
+a "category" layer is in between docs and groups now. Eventually you'll be able to say that a particular category is visible/invisible to non-group members. I'll probably replace categories with tags, and certain tags will be visible/invisible. Who knows what the future brings.
+
+
 More to come, check the TODO.

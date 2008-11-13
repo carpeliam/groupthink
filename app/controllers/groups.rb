@@ -3,7 +3,7 @@ class Groups < Application
   # provides :xml, :yaml, :js
 
   def index
-    @groups = Group.all
+    @groups = Group.paginate :page => (params[:page] or 1)
     display @groups
   end
 

@@ -24,5 +24,6 @@ dependency "dm-validations", dm_gems_version
 
 dependency "dm-is-versioned", dm_gems_version
 dependency "dm-is-nested_set", dm_gems_version
+dependency "dm-paperclip" # version is (somewhat) independent
 
-
+dependency "will_paginate", '2.5.0'

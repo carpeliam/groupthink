@@ -3,7 +3,7 @@
   %i== edited by #{User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
 %p= @version.body
 
-= partial :versions
+= partial 'common/versions', :model => @document
 
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id

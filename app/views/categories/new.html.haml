@@ -4,7 +4,7 @@
   Edit this file in 
   %tt app/views/categories/new.html.erb
 
-= error_messages_for :category
+= error_messages_for @category
 
 = form_for(@category, :action => resource(@group, :categories) ) do
   %p

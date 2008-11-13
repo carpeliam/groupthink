@@ -73,6 +73,15 @@ Merb::Test.add_helpers do
     return document
   end
   
+  def create_artifact
+    Artifact.generate :title => 'Groupthink rocks', :author => get_group.leader, :category => get_category
+  end
+  
+  def get_artifact
+    artifact = create_artifact unless artifact = get_category.artifacts.first(:title => 'Groupthink rocks')
+    return artifact
+  end
+  
 end
 
 given "a user is logged in" do

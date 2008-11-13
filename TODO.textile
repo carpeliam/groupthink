@@ -2,10 +2,14 @@ h1. -crappy-+good+ interface.
 
 Well doesn't this just need some TLC. Right now I'm using pretty bare-bones html (well, haml) with the same stylesheet (almost) that comes default with merb. In a word, it looks hideous. But right now I care more about functionality.
 
-h1. file uploading.
+h1. tagging
 
-I'll be integrating dm-paperclip very shortly, groups can upload files and associate them with documents. These files can be of different content types (probably limited to audio, video, and images), so you can associate different media with your documents.
+Documents and artifacts will support tagging, so you'll be able to see them together. Hierarchical tagging would be great, we'll see what's easy.
+
+h1. watchable groups
+
+at first, group members will just get emails every time a document/artifact is created/updated. But eventually, you'll be able to set watches on other groups, and set watches up based on tags.
 
 h1. ...and more.
 
-RSS feeds, JSON support and REST API, _authorization_ (so you don't go deleting other groups' documents- be nice 'til then!), different visibility scopes, moving documents from one group to another... who even knows.
+RSS feeds, OpenID, JSON support and REST API, _authorization_ (so you don't go deleting other groups' documents- be nice 'til then!), different visibility scopes, moving documents from one group to another... who even knows.

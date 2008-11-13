@@ -45,3 +45,19 @@ Document.fixture(:request_safe) {{
   :title => Faker::Lorem.sentence[0,100],
   :body => Faker::Lorem.paragraph
 }}
+
+Artifact.fixture {
+  category = Category.make
+  {
+    :title => Faker::Lorem.sentence[0,100],
+    :description => Faker::Lorem.sentence[0,255],
+    :category => category,
+    :author => category.group.leader
+  }
+}
+
+# Safe to plug in to a request spec, doesn't create group or author
+Artifact.fixture(:request_safe) {{
+  :title => Faker::Lorem.sentence[0,100],
+  :description => Faker::Lorem.sentence[0,255]
+}}

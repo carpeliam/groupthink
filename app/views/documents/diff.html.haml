@@ -5,6 +5,6 @@
 
 = show_diff(@document.body, @version.body)
 
-= partial :versions
+= partial 'common/versions', :model => @document
 
 = link_to 'Back', resource(group, @category, @document)

@@ -1,0 +1,17 @@
+-# TODO replace group with @category.group when DM works
+- group = Group.get @category.group.id
+
+%h1= show_diff(@artifact.title, @version.title)
+
+= show_diff(@artifact.description, @version.description)
+
+%p
+  == attachment from version #{params[:version]}:
+  Not supported yet.
+  %br
+  attachment from current:
+  = link_to @artifact.attachment.original_filename, @artifact.attachment.url
+
+= partial 'common/versions', :model => @artifact
+
+= link_to 'Back', resource(group, @category, @artifact)

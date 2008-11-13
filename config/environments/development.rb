@@ -13,4 +13,4 @@ Merb::Config.use { |c|
   # Or redirect logging into a file:
   # c[:log_file]  = Merb.root / "log" / "development.log"
 }
-Merb.push_path(:lib, Merb.root / "lib")
+require 'log/color_logger'
