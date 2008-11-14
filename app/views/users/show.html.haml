@@ -1,6 +1,10 @@
-%h1= @user.login
+%h1&= @user.login
 
+%h2 Groups
+%ul
+  - for group in @user.groups
+    %li= link_to h(group.name), resource(group)
 
-= link_to('Edit',  url(:edit_user,  @user)) if @user == session.user
+= link_to('Edit',  resource(@user, :edit)) if @user == session.user
 |
-= link_to 'Back', url(:users)
+= link_to 'Back', resource(:users)

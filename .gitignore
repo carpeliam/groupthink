@@ -17,6 +17,7 @@ schema/*.db
 *.db
 doc/rspec_report.html
 src/*
+public/attachments/*
 .hgignore
 .hg/*
 .svn/*

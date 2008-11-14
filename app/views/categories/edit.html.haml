@@ -1,13 +1,10 @@
-%h1
-  Categories controller, edit action
-%p
-  Edit this file in
-  %tt
-    app/views/categories/edit.html.erb
+%h1== Edit #{h(@category.name)}
+
 = error_messages_for @category
 
 = form_for(@category, :action => resource(@group, @category)) do
   %p
+    = text_field :name, :label => 'Name'
     = submit "Update"
 
 = link_to 'Show', resource(@group, @category)

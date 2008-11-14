@@ -1,4 +1,4 @@
-%h1== Artifacts in #{@category.name}
+%h1== Artifacts in #{h @category.name}
 
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
@@ -12,4 +12,7 @@
       %td
         = link_to 'Edit', resource(group, @category, artifact, :edit)
 
-= link_to 'New', resource(group, @category, :artifacts, :new)
+%p
+  = link_to 'New', resource(group, @category, :artifacts, :new)
+  %br
+  = link_to "Back to #{h @category.name}", resource(group, @category)

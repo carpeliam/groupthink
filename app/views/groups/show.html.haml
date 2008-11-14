@@ -1,4 +1,4 @@
-%h1= @group.name
+%h1&= @group.name
 
 %p
   %b
@@ -6,19 +6,19 @@
   %ul
     - for user in @group.users
       %li
-        = user.login
+        = link_to h(user.login), resource(user)
         = '*' if user == @group.leader
 
 %p= link_to 'Categories', resource(@group, :categories)
 
 - if session.authenticated?
   - if @group.users.include? session.user
-    = form_for(@group, :action => url(:leave_group, @group), :method => :put) do
+    = form_for(@group, :action => resource(@group, :leave), :method => :put) do
       = submit 'Leave this group :('
   - else
-    = form_for(@group, :action => url(:join_group, @group), :method => :put) do
+    = form_for(@group, :action => resource(@group, :join), :method => :put) do
       = submit 'Join this group :)'
 
-= link_to 'Edit',  url(:edit_group,  @group)
+= link_to 'Edit',  resource(@group, :edit)
 |
-= link_to 'Back', url(:groups)
+= link_to 'Back', resource(:groups)

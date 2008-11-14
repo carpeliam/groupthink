@@ -8,7 +8,7 @@
   <body>
     <div align="right">
       <% if session.authenticated? %>
-        Logged in as <%= session.user.login %> | <%= link_to 'log out', url(:logout) %>
+        Logged in as <%=h session.user.login %> | <%= link_to 'log out', url(:logout) %>
       <% else %>
         <%= link_to 'log in', url(:login) %> | <%= link_to 'sign up', url(:signup) %>
       <% end %>

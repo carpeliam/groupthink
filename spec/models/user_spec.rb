@@ -5,6 +5,7 @@ describe User do
   it "should be invalid without a login" do
     user = User.make :login => nil
     user.should_not be_valid
+    user.errors.on(:login).size.should == 1
     user.login = Faker::Internet.user_name
     user.should be_valid
   end

@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a group exists" do
-  Group.all.destroy!
+  Group.all.each {|g| g.destroy }
   Group.generate
 end
 
@@ -21,7 +21,7 @@ context "when logged in as group member", :given => "a group user is logged in" 
   describe "resource(:groups)" do
     describe "a successful POST" do
       before(:each) do
-        Group.all(:id.not => get_group.id).destroy!
+        Group.all(:id.not => get_group.id).each {|g| g.destroy }
         @response = request(resource(:groups), :method => "POST",
           :params => { :group => Group.generate_attributes(:request_safe) })
       end

@@ -1,13 +1,13 @@
 %h1
   Users controller, edit action
 %p
-  I'll get around to this sooner or later.
+  I'll get around to this sooner or later. Nothing to edit yet, anyway.
 = error_messages_for @user
 
-= form_for(@user, :action => url(:user, @user)) do
+= form_for(@user, :action => resource(@user)) do
   %p
     =# submit "Update"
 
-= link_to 'Show', url(:user, @user)
+= link_to 'Show', resource(@user)
 |
-= link_to 'Back', url(:users)
+= link_to 'Back', resource(:users)

@@ -1,6 +1,6 @@
 h1. groupthink.
 
-It's a resource management system for groups. Documents are like private wiki items in the sense that they have history, and you can run diffs on them. They don't, however, support any kind of crazy markup language business at the moment.
+It's a resource management system for groups. Documents are like private wiki items in the sense that they support Textile, have history, and you can run diffs on them.
 
 h2. file uploading with dm-paperclip
 

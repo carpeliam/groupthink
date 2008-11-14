@@ -1,5 +1,7 @@
 %h1
-  = @category.name
+  = link_to h(@group.name), resource(@group)
+%h2
+  &= @category.name
 
 %p= link_to 'Documents', resource(@group, @category, :documents)
 %p= link_to 'Artifacts', resource(@group, @category, :artifacts)

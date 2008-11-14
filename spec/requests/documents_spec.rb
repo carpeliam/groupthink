@@ -53,9 +53,10 @@ context "when logged in as group member", :given => "a group user is logged in" 
   describe "resource(@group, @category, @document)", :given => "a document exists" do
     describe "PUT" do
       before(:each) do
+        sleep 1 # to make sure updated_at is unique
         @version_count = get_document.versions.size
         @response = request(resource(get_group, get_category, get_document), :method => "PUT", 
-          :params => {:document => Document.generate_attributes(:request_safe).merge(:title => 'Groupthink rocks') })
+          :params => {:document => {:title => 'Groupthink rocks', :body => (get_document.body + 'unique')} })
       end
     
       it "redirects to the show action" do
@@ -136,6 +137,7 @@ describe "resource(@group, @category, @document, :diff)", :given => "a document 
     before(:each) do
       @document = Document.first
       @document.body += 'a'
+      sleep 1 # to make sure updated_at is unique
       @document.save # create a version
       @category = Category.get @document.category.id
       @group = Group.get @category.group.id

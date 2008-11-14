@@ -32,6 +32,6 @@ class Group
   end
   
   before :destroy do # temporary replacement for :dependent => :destroy
-    self.categories.destroy!
+    self.categories.each {|c| c.destroy }
   end
 end

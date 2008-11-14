@@ -1,13 +1,12 @@
 %h1
-  Groups controller, index action
+  Groups
 %table
   %tr
     %th Name
   - for group in @groups
     %tr
-      %td= group.name
       %td
-        = link_to 'Show', resource(group)
+        = link_to h(group.name), resource(group)
       %td
         = link_to 'Edit', resource(group, :edit)
 

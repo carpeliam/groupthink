@@ -21,7 +21,7 @@ module Merb
       else
         return
       end
-      tag :div, display_msg, :class => "message #{level}"
+      tag :div, h(display_msg), :class => "message #{level}"
     end
   end
 end

@@ -9,15 +9,26 @@ context "when logged in", :given => "a group user is logged in" do
   describe "resource(@group, @category, :artifacts)" do
     describe "a successful POST" do
       before(:each) do
+        pending
         @category = get_category
         @group = get_group
         Artifact.all.destroy!
-        @response = request(resource(@group, @category, :artifacts), :method => "POST",
-        :params => { :artifact => Artifact.generate_attributes(:request_safe)})
+        
+        @response = multipart_post(resource(@group, @category, :artifacts),
+        {:artifact => Artifact.generate_attributes(:request_safe),
+        :attachment => File.new(__FILE__)})
       end
 
       it "redirects to resource(@group, @category, @artifact)" do
         @response.should redirect_to(resource(@group, @category, Artifact.first), :message => {:notice => "artifact was successfully created"})
+      end
+
+      it "should upload the file to the server" do
+        File.should be_file(Merb.root / 'public' / 'attachments' / Artifact.first.id.to_s / 'original' / File.basename(__FILE__))
+      end
+      
+      after(:each) do
+        FileUtils.rm_rf(Merb.root / 'public' / 'attachments' / Artifact.first.id.to_s)
       end
 
     end
@@ -38,15 +49,28 @@ context "when logged in", :given => "a group user is logged in" do
   describe "resource(@group, @category, @artifact)", :given => "a artifact exists" do
     describe "PUT" do
       before(:each) do
+        pending
         @category = get_category
         @group = get_group
         @artifact = get_artifact
-        @response = request(resource(@group, @category, @artifact), :method => "PUT",
-        :params => { :artifact => Artifact.generate_attributes(:request_safe) })
+        
+        @root = Merb.root / 'public' / 'attachments' / @artifact.id.to_s
+        
+        @response = multipart_put(resource(@group, @category, @artifact),
+        {:artifact => Artifact.generate_attributes(:request_safe),
+        :attachment => File.new(__FILE__)})
       end
 
-      it "redirect to the article show action" do
+      it "should redirect to the artifact show action" do
         @response.should redirect_to(resource(@group, @category, @artifact))
+      end
+      
+      it "should upload the file to the server" do
+        File.should be_file(@root / 'original' / File.basename(__FILE__))
+      end
+      
+      after(:each) do
+        FileUtils.rm_rf(@root)
       end
     end
     describe "a successful DELETE" do

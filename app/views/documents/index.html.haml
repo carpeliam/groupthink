@@ -1,4 +1,4 @@
-%h1== #{@category.name} Documents
+%h1== #{h @category.name} Documents
 
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
@@ -10,12 +10,13 @@
   - for document in @documents
     %tr
       %td
-        = document.title
-      %td
-        = link_to 'Show', resource(group, @category, document)
+        = link_to h(document.title), resource(group, @category, document)
       %td
         = link_to 'Edit', resource(group, @category, document, :edit)
       %td
         = delete_button resource(group, @category, document)
 
-= link_to 'New', resource(group, @category, :documents, :new)
+%p
+  = link_to 'New', resource(group, @category, :documents, :new)
+  %br
+  = link_to "Back to #{h @category.name}", resource(group, @category)

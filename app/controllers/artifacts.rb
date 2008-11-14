@@ -1,4 +1,5 @@
 class Artifacts < Application
+  before :ensure_authenticated, :exclude => [:index, :show, :diff]
   # provides :xml, :yaml, :js
   before :get_category
 
@@ -39,6 +40,7 @@ class Artifacts < Application
     @artifact = @category.artifacts.new(artifact)
     @artifact.author = session.user
     @artifact.attachment = params[:attachment]
+
     if @artifact.save
       #TODO replace group with @category.group when DM works
       group = Group.get @category.group.id

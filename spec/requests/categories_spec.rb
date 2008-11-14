@@ -13,7 +13,7 @@ context "when logged in", :given => "a group user is logged in" do
   describe "resource(@group, :categories)" do
     describe "a successful POST" do
       before(:each) do
-        Category.all.destroy!
+        Category.all.each {|c| c.destroy }
         @group = get_group
         @response = request(resource(@group, :categories), :method => "POST",
           :params => { :category => Category.generate_attributes(:request_safe) })
@@ -78,7 +78,7 @@ context "when not logged in" do#, :given => "user is not logged in" do
   describe "resource(@group, :categories)" do
     describe "a POST attempt" do
       before(:each) do
-        Category.all.destroy!
+        Category.all.each {|c| c.destroy }
         @response = request(resource(Group.first, :categories), :method => "POST",
           :params => { :category => Category.generate_attributes(:request_safe) })
       end
