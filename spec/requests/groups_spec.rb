@@ -36,13 +36,12 @@ context "when logged in as group member", :given => "a group user is logged in" 
   describe "resource(@group)" do
     describe "PUT", :given => "a group user is logged in" do
       before(:each) do
-        @group = Group.first
-        @response = request(resource(@group), :method => "PUT",
+        @response = request(resource(Group.first), :method => "PUT",
           :params => { :group => Group.generate_attributes(:request_safe) })
       end
 
       it "redirect to the show action" do
-        @response.should redirect_to(resource(@group))
+        @response.should redirect_to(resource(Group.first))
       end
     end
     

@@ -7,10 +7,10 @@
     %tr
       %td= group.name
       %td
-        = link_to 'Show', url(:group, group)
+        = link_to 'Show', resource(group)
       %td
-        = link_to 'Edit', url(:edit_group,  group)
+        = link_to 'Edit', resource(group, :edit)
 
-= link_to 'New', url(:new_group)
+= link_to 'New', resource(:groups, :new)
 
 = will_paginate @groups

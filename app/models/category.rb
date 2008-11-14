@@ -15,14 +15,15 @@ class Category
 
   before :valid?, :inherit_group
 
-  def inherit_group
-    self.group = self.parent.group unless self.parent.nil?
-  end
-
   validates_present :group
 
+  private
   before :destroy do # temporary replacement for :dependent => :destroy
     self.documents.destroy!
     self.artifacts.destroy!
+  end
+
+  def inherit_group
+    self.group = self.parent.group unless self.parent.nil?
   end
 end

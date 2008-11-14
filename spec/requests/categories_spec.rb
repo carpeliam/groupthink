@@ -7,7 +7,6 @@ given "a category exists" do
 end
 
 given "user is not logged in" do
-
 end
 
 context "when logged in", :given => "a group user is logged in" do
@@ -75,7 +74,7 @@ context "when logged in", :given => "a group user is logged in" do
 
 end
 
-context "when not logged in" do #, :given => "user is not logged in" do
+context "when not logged in" do#, :given => "user is not logged in" do
   describe "resource(@group, :categories)" do
     describe "a POST attempt" do
       before(:each) do

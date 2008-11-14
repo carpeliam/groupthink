@@ -11,4 +11,14 @@ h2. categorize your documents/files
 a "category" layer is in between docs and groups now. Eventually you'll be able to say that a particular category is visible/invisible to non-group members. I'll probably replace categories with tags, and certain tags will be visible/invisible. Who knows what the future brings.
 
 
+
+*NOTE*: This application may serve as a fair example of what works in Merb, but it's not a good base application. If you're looking for a good working base application, see dkubb's "merb-skeleton":http://github.com/dkubb/merb-skeleton. Groupthink relies on several non-standard gems, some of which may have their own unique installation issues. They are:
+
+* "multibyte":http://github.com/mattetti/multibyte for international character support for permalinks
+* "will_paginate":http://github.com/mislav/will_paginate/tree/agnostic ("installation instructions that worked for me":http://pastie.org/313697)
+* "dm-paperclip":http://github.com/krobertson/dm-paperclip
+* "dm-more":http://github.com/sam/dm-more:
+** dm-is-versioned
+** dm-is-nested_set
+
 More to come, check the TODO.

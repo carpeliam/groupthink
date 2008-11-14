@@ -60,7 +60,7 @@ class Categories < Application
 
   private
   def get_group
-    @group = Group.get(params[:group_id])
+    @group = Group.first(:grouplink => params[:grouplink])
     raise NotFound unless @group
   end
 end # Categories

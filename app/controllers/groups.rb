@@ -7,8 +7,8 @@ class Groups < Application
     display @groups
   end
 
-  def show(id)
-    @group = Group.get(id)
+  def show(grouplink)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     display @group
   end
@@ -19,9 +19,9 @@ class Groups < Application
     display @group
   end
 
-  def edit(id)
+  def edit(grouplink)
     only_provides :html
-    @group = Group.get(id)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     display @group
   end
@@ -38,8 +38,8 @@ class Groups < Application
     end
   end
 
-  def update(id, group)
-    @group = Group.get(id)
+  def update(grouplink, group)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     if @group.update_attributes(group)
        redirect resource(@group)
@@ -48,8 +48,8 @@ class Groups < Application
     end
   end
   
-  def join(id)
-    @group = Group.get(id)
+  def join(grouplink)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     @group.users << session.user
     redirect resource(@group), :message => (@group.save) ?
@@ -57,8 +57,8 @@ class Groups < Application
         {:notice => "Sorry, that didn't work out"}
   end
 
-  def leave(id)
-    @group = Group.get(id)
+  def leave(grouplink)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     @group.users.delete session.user
     redirect resource(@group), :message => (@group.save) ?
@@ -66,8 +66,8 @@ class Groups < Application
         {:notice => "Looks like you're stuck here"}
   end
 
-  def destroy(id)
-    @group = Group.get(id)
+  def destroy(grouplink)
+    @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     if @group.destroy
       redirect resource(:groups)

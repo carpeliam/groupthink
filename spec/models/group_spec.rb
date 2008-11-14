@@ -15,6 +15,17 @@ describe Group do
     group.should be_valid
   end
   
+  it "should have a permalink" do
+    group = Group.generate
+    group.grouplink.should == Slugalizer.slugalize(group.name)
+  end
+  
+  it "should have a unique permalink" do
+    group = Group.generate
+    group2 = Group.generate :name => group.name
+    group2.grouplink.should == group.grouplink + '-2'
+  end
+  
   it "should be invalid without a leader" do
     group = Group.make :leader => nil
     group.should_not be_valid
