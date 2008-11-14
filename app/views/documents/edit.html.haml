@@ -7,9 +7,9 @@
 
 = form_for(@document, :action => resource(group, @category, @document)) do
   %p
-    = text_field :title, :label => 'Title'
+    = text_field :title, :label => 'Title', :size => 75
   %p
-    = text_area :body, :label => 'Body'
+    ~ text_area :body, :label => 'Body', :rows => 20, :cols => 90
   %p
     = submit "Update"
 

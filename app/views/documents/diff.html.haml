@@ -1,9 +1,10 @@
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
 
-%h1= show_diff(@document.title, @version.title)
+%h1= show_diff(@version.title, @document.title)
 
-= show_diff(@document.body, @version.body)
+:textile
+  #{show_diff(@version.body, @document.body)}
 
 = partial 'common/versions', :model => @document
 

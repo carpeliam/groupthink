@@ -1,9 +1,9 @@
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
 
-%h1= show_diff(@artifact.title, @version.title)
+%h1= show_diff(@version.title, @artifact.title)
 
-= show_diff(@artifact.description, @version.description)
+= show_diff(@version.description, @artifact.description)
 
 %p
   == attachment from version #{params[:version]}:
