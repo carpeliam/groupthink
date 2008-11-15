@@ -1,0 +1,16 @@
+h1. Installing groupthink
+
+The following gems are either declared or undeclared as dependencies.
+
+* "RedCloth":http://redcloth.org _for using Textile (you most likely already have this)_
+* "multibyte":http://github.com/mattetti/multibyte _for international character support for permalinks_
+At the time of writing, a @sudo gem install@ of multibyte won't work, as there's a file in the Manifest that's not in github's gem just yet (at least, I don't think it's there yet). so if @sudo gem install@ tells you that there's a file missing, you'll need to install it from source. You shouldn't have any problem with this, though, just @clone@, @rake package@, @sudo gem install@. If you're able to install using the github gem and you don't have any problems when running merb, let me know and I'll update this doc.
+* "will_paginate":http://github.com/mislav/will_paginate/tree/agnostic
+You'll need the 'agnostic' gem; installing from @sudo gem install@ will give you the ActiveRecord version. "These installation instructions worked for me":http://pastie.org/313697.
+* "dm-paperclip":http://github.com/krobertson/dm-paperclip
+This gem can be installed as @sudo gem install dm-paperclip@. Somehow the file permissions for the files in this gem are only read/writable by the file owner, so after installing, you'll have to manually change this. After navigating to the gems/dm-paperclip directory, a command like @find . -type f -print | xargs chmod 644@ should work (make sure you don't use chmod -R, that will modify the directories as well).
+* "dm-more":http://github.com/sam/dm-more:
+** dm-is-versioned
+Needs to be installed from source. It says that it's dependent on 0.9.7, but so far it's code-compatible with 0.9.6. If you're currently using DM 0.9.6, you can hijack dm-is-versioned by changing the version number in dm-is-versioned.rb and version.rb. after this, @rake package@ and @sudo gem install@ should do the trick.
+** dm-is-nested_set
+I think this has a silent dependency on dm-adjust, so if you find this giving you problems, you'll need to install dm-adjust as well.
