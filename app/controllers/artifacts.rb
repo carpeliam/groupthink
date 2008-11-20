@@ -1,10 +1,10 @@
 class Artifacts < Application
   before :ensure_authenticated, :exclude => [:index, :show, :diff]
   # provides :xml, :yaml, :js
-  before :get_category
+  before :get_group
 
   def index
-    @artifacts = @category.artifacts
+    @artifacts = @group.artifacts
     display @artifacts
   end
 
@@ -25,7 +25,7 @@ class Artifacts < Application
 
   def new
     only_provides :html
-    @artifact = @category.artifacts.new
+    @artifact = @group.artifacts.new
     display @artifact
   end
 
@@ -37,14 +37,12 @@ class Artifacts < Application
   end
 
   def create(artifact)
-    @artifact = @category.artifacts.new(artifact)
+    @artifact = @group.artifacts.new(artifact)
     @artifact.author = session.user
     @artifact.attachment = params[:attachment]
 
     if @artifact.save
-      #TODO replace group with @category.group when DM works
-      group = Group.get @category.group.id
-      redirect resource(group, @category, @artifact), :message => {:notice => "Artifact was successfully created"}
+      redirect resource(@group, @artifact), :message => {:notice => "Artifact was successfully created"}
     else
       message[:error] = "Artifact failed to be created"
       render :new
@@ -56,9 +54,7 @@ class Artifacts < Application
     raise NotFound unless @artifact
     @artifact.attachment = params[:attachment]
     if @artifact.update_attributes(artifact)
-      #TODO replace @group with @category.group when DM works
-      @group = Group.get @category.group.id
-      redirect resource(@group, @category, @artifact)
+      redirect resource(@group, @artifact)
     else
       display @artifact, :edit
     end
@@ -68,18 +64,16 @@ class Artifacts < Application
     @artifact = Artifact.get(id)
     raise NotFound unless @artifact
     if @artifact.destroy
-      #TODO replace @group with @category.group when DM works
-      @group = Group.get @category.group.id
-      redirect resource(@group, @category, :artifacts)
+      redirect resource(@group, :artifacts)
     else
       raise InternalServerError
     end
   end
 
   private
-  def get_category
-    @category = Category.get(params[:category_id])
-    raise NotFound unless @category
+  def get_group
+    @group = Group.first(:grouplink => params[:grouplink])
+    raise NotFound unless @group
   end
 
 end # Artifacts

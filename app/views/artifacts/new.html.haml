@@ -1,11 +1,8 @@
-%h1== New artifact for #{@category.name}
-
--# TODO replace group with @category.group when DM works
-- group = Group.get @category.group.id
+%h1== New artifact for #{@group.name}
 
 = error_messages_for @artifact
 
-= form_for(@artifact, { :action => resource(group, @category, :artifacts), :multipart => true }) do
+= form_for(@artifact, { :action => resource(@group, :artifacts), :multipart => true }) do
   %p
     = text_field :title, :label => 'Title'
     %br
@@ -15,4 +12,4 @@
     %br
     = submit "Create"
 
-= link_to 'Back', resource(group, @category, :artifacts)
+= link_to 'Back', resource(@group, :artifacts)

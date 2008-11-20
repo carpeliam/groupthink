@@ -1,6 +1,13 @@
 require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
 describe Document do
+  before(:each) do
+    Document.all.destroy!
+    GroupTag.all.destroy!
+    Tag.all.destroy!
+    Tagging.all.destroy!
+  end
+  
   it "should be invalid without a title" do
     doc = Document.make :title => nil
     doc.should_not be_valid
@@ -22,12 +29,12 @@ describe Document do
     doc.should be_valid
   end
   
-  it "should be invalid without a category" do
-    doc = Document.make :category => nil
+  it "should be invalid without a group" do
+    doc = Document.make :group => nil
     doc.should_not be_valid
-    cat = Category.generate
-    cat.group.users << doc.author
-    doc.category = cat
+    group = Group.generate
+    group.users << doc.author
+    doc.group = group
     doc.should be_valid
   end
   
@@ -53,7 +60,7 @@ describe Document do
     their_group = Group.make
     doc = Document.make
     doc.author = their_group.leader
-    doc.category.group = our_group
+    doc.group = our_group
     doc.should_not be_valid
     doc.author = our_group.leader
     doc.should be_valid
@@ -65,4 +72,44 @@ describe Document do
     doc.should be_valid
   end
 
+  it "should create a grouptag after it's tagged" do
+    group = get_group
+    doc = get_document
+    doc.category_list = 'sex, drugs, rock and roll'
+    doc.save
+    GroupTag.count.should == 3
+    gtags = GroupTag.all
+    gtags.each{|gt| gt.group.should == group }
+    gtags.map{|gt| gt.tag.name }.sort.should == ['drugs', 'rock and roll', 'sex']
+  end
+  
+  it "should remove grouptags after they aren't relevant" do
+    doc = get_document
+    doc.category_list = 'sex, drugs, rock and roll'
+    doc.save
+    doc.category_list = 'rock and roll, awesome'
+    doc.save
+    GroupTag.count.should == 2
+    gtags = GroupTag.all
+    gtags.map{|gt| gt.tag.name }.sort.should == ['awesome', 'rock and roll']
+  end
+  
+  it "should only remove grouptags in this group" do
+    group = get_group
+    doc = get_document
+    doc.category_list = 'my, categories'
+    doc.save
+    d2 = Document.generate
+    d2.category_list = 'their, categories'
+    d2.save
+    GroupTag.count.should == 4
+    Tag.count.should == 3
+    doc.category_list = 'my, list, changed'
+    doc.save
+    GroupTag.count.should == 5
+    group.group_tags.count.should == 3
+    d2.group.group_tags.count.should == 2
+    group.group_tags.map{|gt| gt.tag.name }.sort.should == ['changed', 'list', 'my']
+    d2.group.group_tags.map{|gt| gt.tag.name }.sort.should == ['categories', 'their']
+  end
 end

@@ -21,3 +21,6 @@ public/attachments/*
 .hgignore
 .hg/*
 .svn/*
+bin/
+coverage/
+gems/

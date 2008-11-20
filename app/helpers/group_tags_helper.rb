@@ -1,5 +1,5 @@
 module Merb
-  module CategoriesHelper
+  module GroupTagsHelper
 
   end
 end # Merb

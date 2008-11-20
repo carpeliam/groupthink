@@ -1,0 +1,15 @@
+%h1
+  GroupTags controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/group_tags/edit.html.erb
+= error_messages_for @group_tag
+
+= form_for(@group_tag, :action => resource(@group, @group_tag)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', resource(@group, @group_tag)
+|
+= link_to 'Back', resource(@group, :group_tags)

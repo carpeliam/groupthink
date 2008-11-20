@@ -1,18 +1,11 @@
-%h1== New doc for #{h @category.name}
-
--# TODO replace group with @category.group when DM works
-- @group = Group.get @category.group.id
+%h1== New doc for #{h @group.name}
 
 = error_messages_for @document
 
-= form_for(@document, :action => resource(@group, @category, :documents) ) do
-
-  %p
-    = text_field :title, :label => 'Title', :size => 75
-  %p
-    ~ text_area :body, :label => 'Body', :rows => 20, :cols => 90
+= form_for(@document, :action => resource(@group, :documents) ) do
+  = partial :form
 
   %p
     = submit "Create"
 
-= link_to 'Back', resource(@group, @category, :documents)
+= link_to 'Back', resource(@group, :documents)

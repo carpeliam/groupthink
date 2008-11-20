@@ -1,0 +1,16 @@
+%h1
+  GroupTags controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/group_tags/index.html.erb
+%table
+  %tr
+  - for group_tag in @group_tags
+    %tr
+      %td
+        = link_to group_tag.tag.name, resource(@group, group_tag)
+      %td
+        = link_to 'Edit', resource(@group, group_tag, :edit)
+
+= link_to 'New', resource(@group, :group_tags, :new)

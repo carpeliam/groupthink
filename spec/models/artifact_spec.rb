@@ -30,12 +30,12 @@ describe Artifact do
     artifact.should be_valid
   end
   
-  it "should be invalid without a category" do
-    artifact = Artifact.make :category => nil
+  it "should be invalid without a group" do
+    artifact = Artifact.make :group => nil
     artifact.should_not be_valid
-    cat = Category.generate
-    cat.group.users << artifact.author
-    artifact.category = cat
+    group = Group.generate
+    group.users << artifact.author
+    artifact.group = group
     artifact.should be_valid
   end
   
@@ -61,7 +61,7 @@ describe Artifact do
     their_group = Group.make
     artifact = Artifact.make
     artifact.author = their_group.leader
-    artifact.category.group = our_group
+    artifact.group = our_group
     artifact.should_not be_valid
     artifact.author = our_group.leader
     artifact.should be_valid

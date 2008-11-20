@@ -1,7 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-Category.generate unless Category.count > 0
-
+Group.generate unless Group.count > 0
 
 given "a document exists" do
   Document.all.destroy!
@@ -13,26 +12,25 @@ given "a group user is logged in" do
 end
 
 context "when logged in as group member", :given => "a group user is logged in" do
-  describe "resource(@group, @category, :documents)" do
+  describe "resource(@group, :documents)" do
     describe "a successful POST" do
       before(:each) do
-        @category = get_category
         @group = get_group
         Document.all.destroy!
-        @response = request(resource(@group, @category, :documents), :method => "POST", 
+        @response = request(resource(@group, :documents), :method => "POST", 
           :params => { :document => Document.generate_attributes(:request_safe) })
       end
       
-      it "redirects to resource(@group, @category, @document)" do
-        @response.should redirect_to(resource(@group, @category, Document.first), :message => {:notice => "document was successfully created"})
+      it "redirects to resource(@group, @document)" do
+        @response.should redirect_to(resource(@group, Document.first), :message => {:notice => "document was successfully created"})
       end
       
     end
   end
 
-  describe "resource(@group, @category, :documents, :new)" do
+  describe "resource(@group, :documents, :new)" do
     before(:each) do
-      @response = request(resource(get_group, get_category, :documents, :new))
+      @response = request(resource(get_group, :documents, :new))
     end
     
     it "responds successfully" do
@@ -40,9 +38,9 @@ context "when logged in as group member", :given => "a group user is logged in" 
     end
   end
 
-  describe "resource(@group, @category, @document, :edit)", :given => "a document exists" do
+  describe "resource(@group, @document, :edit)", :given => "a document exists" do
     before(:each) do
-      @response = request(resource(get_group, get_category, get_document, :edit))
+      @response = request(resource(get_group, get_document, :edit))
     end
     
     it "responds successfully" do
@@ -50,17 +48,17 @@ context "when logged in as group member", :given => "a group user is logged in" 
     end
   end
 
-  describe "resource(@group, @category, @document)", :given => "a document exists" do
+  describe "resource(@group, @document)", :given => "a document exists" do
     describe "PUT" do
       before(:each) do
         sleep 1 # to make sure updated_at is unique
         @version_count = get_document.versions.size
-        @response = request(resource(get_group, get_category, get_document), :method => "PUT", 
+        @response = request(resource(get_group, get_document), :method => "PUT", 
           :params => {:document => {:title => 'Groupthink rocks', :body => (get_document.body + 'unique')} })
       end
     
       it "redirects to the show action" do
-        @response.should redirect_to(resource(get_group, get_category, get_document))
+        @response.should redirect_to(resource(get_group, get_document))
       end
       
       it "increments the version count" do
@@ -70,24 +68,23 @@ context "when logged in as group member", :given => "a group user is logged in" 
     
     describe "a successful DELETE" do
        before(:each) do
-         @response = request(resource(get_group, get_category, get_document), :method => "DELETE")
+         @response = request(resource(get_group, get_document), :method => "DELETE")
        end
 
        it "should redirect to the index action" do
-         @response.should redirect_to(resource(get_group, get_category, :documents))
+         @response.should redirect_to(resource(get_group, :documents))
        end
 
      end
   end
 end
 
-describe "resource(@group, @category, :documents)" do
+describe "resource(@group, :documents)" do
   describe "GET" do
     
     before(:each) do
-      @category = Category.first
-      @group = Group.get @category.group.id
-      @response = request(resource(@group, @category, :documents))
+      @group = Group.first
+      @response = request(resource(@group, :documents))
     end
     
     it "responds successfully" do
@@ -103,9 +100,8 @@ describe "resource(@group, @category, :documents)" do
   
   describe "GET", :given => "a document exists" do
     before(:each) do
-      @category = Category.first
-      @group = Group.get @category.group.id
-      @response = request(resource(@group, @category, :documents))
+      @group = Group.first
+      @response = request(resource(@group, :documents))
     end
     
     it "has a list of documents" do
@@ -115,14 +111,13 @@ describe "resource(@group, @category, :documents)" do
   end
 end
 
-describe "resource(@group, @category, @document)", :given => "a document exists" do
+describe "resource(@group, @document)", :given => "a document exists" do
   
   describe "GET" do
     before(:each) do
       @document = Document.first
-      @category = Category.get @document.category.id
-      @group = Group.get @category.group.id
-      @response = request(resource(@group, @category, @document))
+      @group = Group.get @document.group.id
+      @response = request(resource(@group, @document))
     end
   
     it "responds successfully" do
@@ -131,7 +126,7 @@ describe "resource(@group, @category, @document)", :given => "a document exists"
   end
 end
 
-describe "resource(@group, @category, @document, :diff)", :given => "a document exists" do
+describe "resource(@group, @document, :diff)", :given => "a document exists" do
   
   describe "GET" do
     before(:each) do
@@ -139,9 +134,8 @@ describe "resource(@group, @category, @document, :diff)", :given => "a document 
       @document.body += 'a'
       sleep 1 # to make sure updated_at is unique
       @document.save # create a version
-      @category = Category.get @document.category.id
-      @group = Group.get @category.group.id
-      @response = request(resource(@group, @category, @document, :diff, :version => 1))
+      @group = Group.get @document.group.id
+      @response = request(resource(@group, @document, :diff, :version => 1))
     end
   
     it "responds successfully" do

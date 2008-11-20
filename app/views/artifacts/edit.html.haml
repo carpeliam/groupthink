@@ -1,16 +1,13 @@
--# TODO replace group with @category.group when DM works
-- group = Group.get @category.group.id
-
 %h1== Edit #{@artifact.title}
 
 = error_messages_for @artifact
 
-= form_for(@artifact, { :action => resource(group, @category, @artifact), :multipart => true }) do
+= form_for(@artifact, { :action => resource(@group, @artifact), :multipart => true }) do
   %p
     = text_field :description, :label => 'Description'
     = file_field :name => 'attachment'
     = submit "Update"
 
-= link_to 'Show', resource(group, @category, @artifact)
+= link_to 'Show', resource(@group, @artifact)
 |
-= link_to 'Back', resource(group, @category, :artifacts)
+= link_to 'Back', resource(@group, :artifacts)

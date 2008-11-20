@@ -1,8 +1,5 @@
 %h1== show #{@artifact.title}
 
-- #TODO replace group with @category.group when DM works
-- group = Group.get @category.group.id
-
 %p= @artifact.description
 
 %p= link_to @artifact.title, @artifact.attachment.url
@@ -10,6 +7,6 @@
 = partial 'common/versions', :model => @artifact
 
 
-= link_to 'Edit',  resource(group, @category,  @artifact, :edit)
+= link_to 'Edit',  resource(@group,  @artifact, :edit)
 |
-= link_to 'Back', resource(group, @category, :artifacts)
+= link_to 'Back', resource(@group, :artifacts)

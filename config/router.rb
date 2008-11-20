@@ -32,10 +32,9 @@ Merb::Router.prepare do
 
   identify Group => :grouplink do
     resources :groups, :member => { :join => :put, :leave => :put } do
-      resources :categories do
-        resources :documents, :member => { :diff => :get }
-        resources :artifacts, :member => { :diff => :get }
-      end
+      resources :documents, :member => { :diff => :get }
+      resources :artifacts, :member => { :diff => :get }
+      resources :group_tags
     end
   end
 

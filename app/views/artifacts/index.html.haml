@@ -1,18 +1,15 @@
-%h1== Artifacts in #{h @category.name}
-
--# TODO replace group with @category.group when DM works
-- group = Group.get @category.group.id
+%h1== Artifacts in #{h @group.name}
 
 %table
   %tr
   - for artifact in @artifacts
     %tr
       %td
-        = link_to 'Show', resource(group, @category, artifact)
+        = link_to 'Show', resource(@group, artifact)
       %td
-        = link_to 'Edit', resource(group, @category, artifact, :edit)
+        = link_to 'Edit', resource(@group, artifact, :edit)
 
 %p
-  = link_to 'New', resource(group, @category, :artifacts, :new)
+  = link_to 'New', resource(@group, :artifacts, :new)
   %br
-  = link_to "Back to #{h @category.name}", resource(group, @category)
+  = link_to "Back to #{h @group.name}", resource(@group)

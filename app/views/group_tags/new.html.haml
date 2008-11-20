@@ -1,0 +1,13 @@
+%h1 GroupTags controller, new action
+
+%p 
+  Edit this file in 
+  %tt app/views/group_tags/new.html.erb
+
+= error_messages_for :group_tag
+
+= form_for(@group_tag, :action => url(:group_tags) ) do
+  %p
+    = submit "Create"
+
+= link_to 'Back', url(:group_tags)

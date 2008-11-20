@@ -1,6 +1,3 @@
--# TODO replace group with @category.group when DM works
-- group = Group.get @category.group.id
-
 %h1= show_diff(h(@version.title), h(@document.title))
 
 :textile
@@ -8,4 +5,4 @@
 
 = partial 'common/versions', :model => @document
 
-= link_to 'Back', resource(group, @category, @document)
+= link_to 'Back', resource(@group, @document)

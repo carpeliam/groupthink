@@ -1,0 +1,10 @@
+%h1
+  GroupTags controller, show action
+
+- for obj in @group_tag.taggables
+  = link_to obj.title, resource(@group, obj)
+  %br
+
+= link_to 'Edit',  resource(@group, @group_tag, :edit)
+|
+= link_to 'Back', resource(@group, :group_tags)

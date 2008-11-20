@@ -14,7 +14,10 @@ class Group
   belongs_to :leader, :class_name => 'User'
   has n,     :users,  :through => Resource
   # TODO remove before(:destroy) when :dependent => :destroy works
-  has n,     :categories#, :dependent => :destroy
+  has n,     :documents#, :dependent => :destroy
+  has n,     :artifacts#, :dependent => :destroy
+  has n,     :group_tags
+  has n,     :taggings, :through => :group_tags
 
   validates_present     :leader
   validates_with_method :leader_is_member
@@ -32,6 +35,7 @@ class Group
   end
   
   before :destroy do # temporary replacement for :dependent => :destroy
-    self.categories.each {|c| c.destroy }
+    self.documents.all.destroy!
+    self.artifacts.all.destroy!
   end
 end

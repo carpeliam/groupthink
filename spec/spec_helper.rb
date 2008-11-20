@@ -55,31 +55,32 @@ Merb::Test.add_helpers do
     return group
   end
   
-  def create_category
-    Category.generate :name => 'public', :group => get_group
-  end
-  
-  def get_category
-    category = create_category unless category = get_group.categories.first(:name => 'public')
-    return category
-  end
-  
   def create_document
-    Document.generate :title => 'Groupthink rocks', :author => get_group.leader, :category => get_category
+    Document.generate :title => 'Groupthink rocks', :author => get_group.leader, :group => get_group
   end
   
   def get_document
-    document = create_document unless document = get_category.documents.first(:title => 'Groupthink rocks')
+    document = create_document unless document = get_group.documents.first(:title => 'Groupthink rocks')
     return document
   end
   
   def create_artifact
-    Artifact.generate :title => 'Groupthink rocks', :author => get_group.leader, :category => get_category
+    Artifact.generate :title => 'Groupthink rocks', :author => get_group.leader, :group => get_group
   end
   
   def get_artifact
-    artifact = create_artifact unless artifact = get_category.artifacts.first(:title => 'Groupthink rocks')
+    artifact = create_artifact unless artifact = get_group.artifacts.first(:title => 'Groupthink rocks')
     return artifact
+  end
+  
+  def create_group_tag
+    group = get_group
+    GroupTag.generate :name => 'Groupthink', :leader => user, :users => [user]
+  end
+  
+  def get_group_tag
+    group = create_group unless group = Group.first(:name => 'Groupthink')
+    return group
   end
   
 end

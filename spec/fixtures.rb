@@ -21,22 +21,13 @@ Group.fixture(:request_safe) {{
   :name => Faker::Company.name[0,100]
 }}
 
-Category.fixture {{
-  :name => Faker::Lorem.words.join(' '),
-  :group => Group.make
-}}
-
-Category.fixture(:request_safe) {{
-  :name => Faker::Lorem.words.join(' ')
-}}
-
 Document.fixture {
-  category = Category.make
+  group = Group.make
   {
     :title => Faker::Lorem.sentence[0,100],
     :body => Faker::Lorem.paragraph,
-    :category => category,
-    :author => category.group.leader
+    :group => group,
+    :author => group.leader
   }
 }
 
@@ -47,12 +38,12 @@ Document.fixture(:request_safe) {{
 }}
 
 Artifact.fixture {
-  category = Category.make
+  group = Group.make
   {
     :title => Faker::Lorem.sentence[0,100],
     :description => Faker::Lorem.sentence[0,255],
-    :category => category,
-    :author => category.group.leader
+    :group => group,
+    :author => group.leader
   }
 }
 

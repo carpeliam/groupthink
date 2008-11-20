@@ -5,8 +5,6 @@
 
 require 'config/dependencies.rb'
 
-
-
 use_orm :datamapper
 use_test :rspec
 use_template_engine :haml
@@ -28,6 +26,5 @@ Merb::BootLoader.before_app_loads do
 end
 
 Merb::BootLoader.after_app_loads do
-  # This will get executed after your app's classes have been loaded.
 end
 
