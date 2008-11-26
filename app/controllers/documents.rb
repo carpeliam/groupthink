@@ -49,6 +49,15 @@ class Documents < Application
       render :new
     end
   end
+  
+  def watch(id)
+    @document = Document.get(id)
+    Watch.create(:watcher => session.user, :watchable => @document)
+      #TODO replace group with @category.group when DM works
+      group = Group.get @category.group.id
+    redirect resource(group, @category, @document),
+      :message => {:notice => 'Looks successful, I think'}
+  end
 
   def update(id, document)
     @document = Document.get(id)

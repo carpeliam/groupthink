@@ -13,6 +13,8 @@ class User
 
   property :id,     Serial
   property :login,  String, :nullable => false, :unique => true
+  property :email,  String
+  
   property :created_at, DateTime, :lazy => true
   property :updated_at, DateTime, :lazy => true
 

@@ -25,9 +25,16 @@ Merb::BootLoader.before_app_loads do
   require 'lib/diff'
   require 'lib/slugalizer'
   require 'lib/groupthink'
+  
+  Merb::Slices::config[:merb_watchable][:sender] = 'Groupthink <groupthink@carpeliam.com>'
 end
 
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  Merb::Mailer.config = {
+    :host   => 'localhost',
+    :port   => 25,
+    :domain => 'localhost.localdomain'
+  }
 end
 

@@ -33,7 +33,7 @@ Merb::Router.prepare do
   identify Group => :grouplink do
     resources :groups, :member => { :join => :put, :leave => :put } do
       resources :categories do
-        resources :documents, :member => { :diff => :get }
+        resources :documents, :member => { :diff => :get, :watch => :get }
         resources :artifacts, :member => { :diff => :get }
       end
     end

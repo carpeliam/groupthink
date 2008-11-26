@@ -7,7 +7,8 @@ Spec::Runner.configure do |config|
   config.include(Merb::Test::RouteHelper)
   config.include(Merb::Test::ControllerHelper)
 
-# why doesn't this work?
+# FIXME why doesn't this work?
+# from http://wiki.merbivore.com/testing/rspec/datamapper-transactions
 
 #  config.after(:each) do
 #    repository(:default) do

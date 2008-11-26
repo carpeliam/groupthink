@@ -13,12 +13,7 @@ require "spec" # Satisfies Autotest and anyone else not using the Rake tasks
 # here again, Merb will do it for you
 Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')
 
-Spec::Runner.configure do |config|
-  config.include(Merb::Test::ViewHelper)
-  config.include(Merb::Test::RouteHelper)
-  config.include(Merb::Test::ControllerHelper)
-end
-
+require File.dirname(__FILE__) / 'runner_config.rb'
 require File.dirname(__FILE__) / 'fixtures.rb'
 
 Merb::Test.add_helpers do

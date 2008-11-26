@@ -21,3 +21,4 @@ public/attachments/*
 .hgignore
 .hg/*
 .svn/*
+coverage/
