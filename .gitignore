@@ -15,7 +15,6 @@ schema/*.db
 *.sqlite
 *.sqlite3
 *.db
-doc/rspec_report.html
 src/*
 public/attachments/*
 .hgignore
