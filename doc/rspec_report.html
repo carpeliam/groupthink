@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+  <script type="text/javascript">
+    // <![CDATA[
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+function makeRed(element_id) {
+  document.getElementById(element_id).style.background = '#C40D0D';
+  document.getElementById(element_id).style.color = '#FFFFFF';
+}
+
+function makeYellow(element_id) {
+  if (element_id == "rspec-header" && document.getElementById(element_id).style.background != '#C40D0D')
+  {
+    document.getElementById(element_id).style.background = '#FAF834';
+    document.getElementById(element_id).style.color = '#000000';
+  }
+  else
+  {
+    document.getElementById(element_id).style.background = '#FAF834';
+    document.getElementById(element_id).style.color = '#000000';
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+}
+
+#summary {
+  margin: 0; padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd.spec.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.spec.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+dd.spec.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.spec.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+
+<div id="rspec-header">
+  <h1>RSpec Results</h1>
+
+  <div id="summary">
+    <p id="totals">&nbsp;</p>
+    <p id="duration">&nbsp;</p>
+  </div>
+</div>
+
+<div class="results">
+<div class="example_group">
+  <dl>
+  <dt id="example_group_1">when logged in resource(:groups, :new)</dt>
+    <script type="text/javascript">moveProgressBar('0.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_2">when logged in joining a group</dt>
+    <script type="text/javascript">moveProgressBar('1.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the group page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_3">when logged in as group member resource(:groups) a successful POST</dt>
+    <script type="text/javascript">moveProgressBar('2.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to resource(@group)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_4">when logged in as group member resource(@group) PUT</dt>
+    <script type="text/javascript">moveProgressBar('3.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirect to the show action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_5">when logged in as group member resource(@group) a successful DELETE</dt>
+    <script type="text/javascript">moveProgressBar('4.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the index action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_6">when logged in as group member resource(@group, :edit)</dt>
+    <script type="text/javascript">moveProgressBar('5.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_7">when logged in as group member resource(@group, :leave)</dt>
+    <script type="text/javascript">moveProgressBar('6.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the group page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_8">resource(:groups) GET</dt>
+    <script type="text/javascript">moveProgressBar('7.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_8');</script>
+    <script type="text/javascript">moveProgressBar('8.4');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">contains a list of groups (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_9">resource(:groups) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_9');</script>
+    <script type="text/javascript">moveProgressBar('9.4');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">has a list of groups (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_10">resource(@group) GET</dt>
+    <script type="text/javascript">moveProgressBar('10.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_11">when logged in resource(@group, @category, :artifacts) a successful POST</dt>
+    <script type="text/javascript">moveProgressBar('11.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to resource(@group, @category, @artifact)</span></dd>
+    <script type="text/javascript">moveProgressBar('12.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should upload the file to the server</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_12">when logged in resource(@group, @category, :artifacts, :new)</dt>
+    <script type="text/javascript">moveProgressBar('13.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_13">when logged in resource(@group, @category, @artifact) PUT</dt>
+    <script type="text/javascript">moveProgressBar('14.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the artifact show action</span></dd>
+    <script type="text/javascript">moveProgressBar('15.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should upload the file to the server</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_14">when logged in resource(@group, @category, @artifact) a successful DELETE</dt>
+    <script type="text/javascript">moveProgressBar('16.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the index action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_15">when logged in resource(@group, @category, @artifact, :edit)</dt>
+    <script type="text/javascript">moveProgressBar('16.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_16">resource(@group, @category, :artifacts) GET</dt>
+    <script type="text/javascript">moveProgressBar('17.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_16');</script>
+    <script type="text/javascript">moveProgressBar('18.8');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">contains a list of artifacts (PENDING: TODO)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_17">resource(@group, @category, :artifacts) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_17');</script>
+    <script type="text/javascript">moveProgressBar('19.8');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">has a list of artifacts (PENDING: TODO)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_18">resource(@group, @category, @artifact) GET</dt>
+    <script type="text/javascript">moveProgressBar('20.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_19">Group</dt>
+    <script type="text/javascript">moveProgressBar('21.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a name</span></dd>
+    <script type="text/javascript">moveProgressBar('22.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have a name 100chars or less</span></dd>
+    <script type="text/javascript">moveProgressBar('23.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have a permalink</span></dd>
+    <script type="text/javascript">moveProgressBar('24.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have a unique permalink</span></dd>
+    <script type="text/javascript">moveProgressBar('25.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a leader</span></dd>
+    <script type="text/javascript">moveProgressBar('26.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should delete all child categories when it's deleted</span></dd>
+    <script type="text/javascript">moveProgressBar('27.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be valid if it has all attributes</span></dd>
+    <script type="text/javascript">moveProgressBar('28.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">leader should be a member</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_20">when logged in resource(:users) POST when logged in</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_20');</script>
+    <script type="text/javascript">moveProgressBar('29.2');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">renders with a message, you're already logged in (PENDING: let's not be able to create a new user if we're already logged in)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_21">when logged in resource(@user, :edit) edit ourselves</dt>
+    <script type="text/javascript">moveProgressBar('30.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_22">when logged in resource(@user, :edit) edit someone else</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_22');</script>
+    <script type="text/javascript">moveProgressBar('31.1');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should scold us (PENDING: authz)</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_22');</script>
+    <script type="text/javascript">moveProgressBar('32.0');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should fail (PENDING: authz)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_23">when logged in resource(@user) GET profile page</dt>
+    <script type="text/javascript">moveProgressBar('33.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_24">when logged in resource(@user) PUT ourselves</dt>
+    <script type="text/javascript">moveProgressBar('33.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirect to our profile</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_25">when logged in resource(@user) PUT someone else</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_25');</script>
+    <script type="text/javascript">moveProgressBar('34.9');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should scold us (PENDING: authz)</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_25');</script>
+    <script type="text/javascript">moveProgressBar('35.8');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should fail (PENDING: authz)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_26">when logged in resource(@user) DELETE ourselves</dt>
+    <script type="text/javascript">moveProgressBar('36.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the index action</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_26');</script>
+    <script type="text/javascript">moveProgressBar('37.7');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should log you out (PENDING: how do we get the session?)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_27">when logged in resource(@user) DELETE someone else</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_27');</script>
+    <script type="text/javascript">moveProgressBar('38.6');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should scold you (PENDING: authz)</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_27');</script>
+    <script type="text/javascript">moveProgressBar('39.6');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should fail (PENDING: authz)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_28">when not logged in resource(:users) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_28');</script>
+    <script type="text/javascript">moveProgressBar('40.5');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">redirects you to home page (PENDING: authz)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_29">when not logged in resource(:users) a successful POST</dt>
+    <script type="text/javascript">moveProgressBar('41.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_30">when not logged in resource(:users, :new)</dt>
+    <script type="text/javascript">moveProgressBar('42.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_31">when not logged in resource(@user, :edit)</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_31');</script>
+    <script type="text/javascript">moveProgressBar('43.3');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">scolds us (PENDING: do we have messages like this yet?)</span></dd>
+    <script type="text/javascript">moveProgressBar('44.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">fails</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_32">when not logged in resource(@user) GET</dt>
+    <script type="text/javascript">moveProgressBar('45.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_33">when not logged in resource(@user) PUT</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_33');</script>
+    <script type="text/javascript">moveProgressBar('46.2');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should scold us (PENDING: TODO)</span></dd>
+    <script type="text/javascript">moveProgressBar('47.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should fail</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_34">when not logged in resource(@user) DELETE</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_34');</script>
+    <script type="text/javascript">moveProgressBar('48.1');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should scold you (PENDING: TODO)</span></dd>
+    <script type="text/javascript">moveProgressBar('49.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should fail</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_35">when admin resource(:users) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_35');</script>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">responds successfully (PENDING: authz)</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_35');</script>
+    <script type="text/javascript">moveProgressBar('50.9');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">contains a list of users (PENDING: authz)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_36">Artifact</dt>
+    <script type="text/javascript">moveProgressBar('51.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a title</span></dd>
+    <script type="text/javascript">moveProgressBar('52.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have  a title 100chars or less</span></dd>
+    <script type="text/javascript">moveProgressBar('53.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a description</span></dd>
+    <script type="text/javascript">moveProgressBar('54.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have  a description 255chars or less</span></dd>
+    <script type="text/javascript">moveProgressBar('55.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a category</span></dd>
+    <script type="text/javascript">moveProgressBar('56.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without an author</span></dd>
+    <script type="text/javascript">moveProgressBar('57.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be valid if it has all attributes</span></dd>
+    <script type="text/javascript">moveProgressBar('58.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be versioned</span></dd>
+    <script type="text/javascript">moveProgressBar('59.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be created by someone in its group</span></dd>
+    <script type="text/javascript">moveProgressBar('60.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">author can leave group after artifact is created and artifact will still be valid</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_36');</script>
+    <script type="text/javascript">moveProgressBar('61.3');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">should support uploading files (PENDING: Not Yet Implemented)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_37">Document</dt>
+    <script type="text/javascript">moveProgressBar('62.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a title</span></dd>
+    <script type="text/javascript">moveProgressBar('63.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should have a title 100chars or less</span></dd>
+    <script type="text/javascript">moveProgressBar('64.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a body</span></dd>
+    <script type="text/javascript">moveProgressBar('65.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a category</span></dd>
+    <script type="text/javascript">moveProgressBar('66.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without an author</span></dd>
+    <script type="text/javascript">moveProgressBar('66.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be valid if it has all attributes</span></dd>
+    <script type="text/javascript">moveProgressBar('67.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be versioned</span></dd>
+    <script type="text/javascript">moveProgressBar('68.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be created by someone in its group</span></dd>
+    <script type="text/javascript">moveProgressBar('69.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">author can leave group after doc is created and doc will still be valid</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_38">when logged in resource(@group, :categories) a successful POST</dt>
+    <script type="text/javascript">moveProgressBar('70.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to resource(@group, @category)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_39">when logged in resource(@group, @category) PUT</dt>
+    <script type="text/javascript">moveProgressBar('71.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirect to the article show action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_40">when logged in resource(@group, @category) a successful DELETE</dt>
+    <script type="text/javascript">moveProgressBar('72.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the index action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_41">when logged in resource(@group, :categories, :new)</dt>
+    <script type="text/javascript">moveProgressBar('73.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_42">when logged in resource(@group, @category, :edit)</dt>
+    <script type="text/javascript">moveProgressBar('74.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_43">when not logged in resource(@group, :categories) a POST attempt</dt>
+    <script type="text/javascript">moveProgressBar('75.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_44">when not logged in resource(@group, @category) PUT</dt>
+    <script type="text/javascript">moveProgressBar('76.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirect to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_45">when not logged in resource(@group, @category) a successful DELETE</dt>
+    <script type="text/javascript">moveProgressBar('77.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_46">when not logged in resource(@group, :categories, :new)</dt>
+    <script type="text/javascript">moveProgressBar('78.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_47">when not logged in resource(@group, @category, :edit)</dt>
+    <script type="text/javascript">moveProgressBar('79.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to login page</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_48">resource(@group, :categories) GET</dt>
+    <script type="text/javascript">moveProgressBar('80.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_48');</script>
+    <script type="text/javascript">moveProgressBar('81.1');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">contains a list of categories (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_49">resource(@group, :categories) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_49');</script>
+    <script type="text/javascript">moveProgressBar('82.0');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">has a list of categories (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_50">resource(@group, @category) GET</dt>
+    <script type="text/javascript">moveProgressBar('83.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_51">Category</dt>
+    <script type="text/javascript">moveProgressBar('83.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should require a name</span></dd>
+    <script type="text/javascript">moveProgressBar('84.9');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a group</span></dd>
+    <script type="text/javascript">moveProgressBar('85.8');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should delete all child documents when it's deleted</span></dd>
+    <script type="text/javascript">moveProgressBar('86.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should inherit the group from its parent</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_52">when logged in as group member resource(@group, @category, :documents) a successful POST</dt>
+    <script type="text/javascript">moveProgressBar('87.7');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to resource(@group, @category, @document)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_53">when logged in as group member resource(@group, @category, :documents, :new)</dt>
+    <script type="text/javascript">moveProgressBar('88.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_54">when logged in as group member resource(@group, @category, @document, :edit)</dt>
+    <script type="text/javascript">moveProgressBar('89.6');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_55">when logged in as group member resource(@group, @category, @document) PUT</dt>
+    <script type="text/javascript">moveProgressBar('90.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">redirects to the show action</span></dd>
+    <script type="text/javascript">moveProgressBar('91.5');</script>
+    <dd class="spec passed"><span class="passed_spec_name">increments the version count</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_56">when logged in as group member resource(@group, @category, @document) a successful DELETE</dt>
+    <script type="text/javascript">moveProgressBar('92.4');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should redirect to the index action</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_57">resource(@group, @category, :documents) GET</dt>
+    <script type="text/javascript">moveProgressBar('93.3');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_57');</script>
+    <script type="text/javascript">moveProgressBar('94.3');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">contains a list of documents (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_58">resource(@group, @category, :documents) GET</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('example_group_58');</script>
+    <script type="text/javascript">moveProgressBar('95.2');</script>
+    <dd class="spec not_implemented"><span class="not_implemented_spec_name">has a list of documents (PENDING: haven't decided what this should look like yet)</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_59">resource(@group, @category, @document) GET</dt>
+    <script type="text/javascript">moveProgressBar('96.2');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_60">resource(@group, @category, @document, :diff) GET</dt>
+    <script type="text/javascript">moveProgressBar('97.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">responds successfully</span></dd>
+  </dl>
+</div>
+<div class="example_group">
+  <dl>
+  <dt id="example_group_61">User</dt>
+    <script type="text/javascript">moveProgressBar('98.1');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be invalid without a login</span></dd>
+    <script type="text/javascript">moveProgressBar('99.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should require logins to be unique</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="spec passed"><span class="passed_spec_name">should be valid if it has all attributes</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>10.515894 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "106 examples, 0 failures, 23 pending";</script>
+</div>
+</div>
+</body>
+</html>

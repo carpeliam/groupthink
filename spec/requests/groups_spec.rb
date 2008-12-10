@@ -15,6 +15,16 @@ context "when logged in", :given => 'a user is logged in' do
       @response.should be_successful
     end
   end
+  
+  describe "joining a group", :given => 'a group exists' do
+    before(:each) do
+      @response = request(resource(Group.first, :join), :method => "PUT")
+    end
+    
+    it "should redirect to the group page" do
+      @response.should redirect_to(resource(Group.first), :message => {:notice => "You were successfully added to the group"})
+    end
+  end
 end
 
 context "when logged in as group member", :given => "a group user is logged in" do
@@ -66,6 +76,15 @@ context "when logged in as group member", :given => "a group user is logged in" 
     end
   end
 
+  describe "resource(@group, :leave)" do
+    before(:each) do
+      @response = request(resource(Group.first, :leave), :method => "PUT")
+    end
+    
+    it "should redirect to the group page" do
+      @response.should redirect_to(resource(Group.first), :message => {:notice => "Sorry to see you go"})
+    end
+  end
 end
 
 describe "resource(:groups)" do

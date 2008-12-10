@@ -9,7 +9,6 @@ context "when logged in", :given => "a group user is logged in" do
   describe "resource(@group, @category, :artifacts)" do
     describe "a successful POST" do
       before(:each) do
-        pending
         @category = get_category
         @group = get_group
         Artifact.all.destroy!
@@ -49,7 +48,6 @@ context "when logged in", :given => "a group user is logged in" do
   describe "resource(@group, @category, @artifact)", :given => "a artifact exists" do
     describe "PUT" do
       before(:each) do
-        pending
         @category = get_category
         @group = get_group
         @artifact = get_artifact

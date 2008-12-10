@@ -1,6 +1,6 @@
 # dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
-merb_gems_version = "1.0.3"
-dm_gems_version   = "0.9.7"
+merb_gems_version = "1.0.4"
+dm_gems_version   = "0.9.8"
 
 # For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
 dependency "merb-action-args", merb_gems_version
@@ -28,7 +28,7 @@ dependency "dm-is-nested_set", dm_gems_version
 dependency "dm-paperclip" # version is (somewhat) independent
 
 dependency "will_paginate", '2.5.0'
-dependency "multibyte"
+dependency "mattetti-multibyte", '>= 0.1.1', :require_as => "multibyte"
 
 dependency "RedCloth", :require_as => 'redcloth'
 

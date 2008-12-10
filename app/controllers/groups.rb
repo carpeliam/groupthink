@@ -54,7 +54,7 @@ class Groups < Application
     @group.users << session.user
     redirect resource(@group), :message => (@group.save) ?
         {:notice => "You were successfully added to the group"} :
-        {:notice => "Sorry, that didn't work out"}
+        {:error => "Sorry, that didn't work out"}
   end
 
   def leave(grouplink)
@@ -63,7 +63,7 @@ class Groups < Application
     @group.users.delete session.user
     redirect resource(@group), :message => (@group.save) ?
         {:notice => "Sorry to see you go"} :
-        {:notice => "Looks like you're stuck here"}
+        {:error => "Looks like you're stuck here"}
   end
 
   def destroy(grouplink)
