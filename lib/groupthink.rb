@@ -18,7 +18,7 @@ module Groupthink
         belongs_to :author, :class_name => 'User'
 
         is_versioned :on => :updated_at
-        is :watchable
+        is :watchable, :label => :title
 
         validates_present :category
         validates_present :author
