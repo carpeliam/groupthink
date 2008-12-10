@@ -1,4 +1,4 @@
-See INSTALL if you're having a hard time installing any required gems.
+See "INSTALL":INSTALL.textile if you're having a hard time installing any required gems.
 
 h1. groupthink.
 
