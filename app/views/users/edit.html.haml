@@ -1,12 +1,11 @@
-%h1
-  Users controller, edit action
-%p
-  I'll get around to this sooner or later. Nothing to edit yet, anyway.
+%h1== Profile for #{h @user.login}
 = error_messages_for @user
 
 = form_for(@user, :action => resource(@user)) do
   %p
-    =# submit "Update"
+    = text_field :email, :label => 'email'
+  %p
+    = submit "Update"
 
 = link_to 'Show', resource(@user)
 |
