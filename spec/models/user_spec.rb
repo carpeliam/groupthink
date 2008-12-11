@@ -24,5 +24,11 @@ describe User do
     user = User.make
     user.should be_valid
   end
-
+  
+  it "should create a private group for a user when the user is created" do
+    user = User.generate
+    user.groups.size.should == 1
+    group = user.groups.first
+    group.name.should =~ /#{user.login}/
+  end
 end

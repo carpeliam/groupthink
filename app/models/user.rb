@@ -19,5 +19,9 @@ class User
   property :updated_at, DateTime, :lazy => true
 
   has n, :groups, :through => Resource
+  
+  after :create do
+    Group.create :name => self.login, :leader => self, :users => [self]
+  end
 
 end
