@@ -23,7 +23,6 @@ end
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
   require 'lib/diff'
-  require 'lib/slugalizer'
   require 'lib/groupthink'
   
   Merb::Slices::config[:merb_watchable][:sender] = 'Groupthink <groupthink@carpeliam.com>'

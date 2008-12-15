@@ -19,16 +19,16 @@ dependency "dm-core", dm_gems_version
 dependency "dm-aggregates", dm_gems_version   
 dependency "dm-migrations", dm_gems_version   
 dependency "dm-timestamps", dm_gems_version   
-#dependency "dm-types", dm_gems_version        
+dependency "dm-types", dm_gems_version        
 dependency "dm-validations", dm_gems_version
 
 dependency "dm-is-versioned", dm_gems_version
 dependency "dm-adjust", dm_gems_version # required by dm-is-nested_set
 dependency "dm-is-nested_set", dm_gems_version
+dependency "carpeliam-dm-slug", dm_gems_version, :require_as => 'dm-slug'
 dependency "dm-paperclip" # version is (somewhat) independent
 
 dependency "will_paginate", '2.5.0'
-dependency "mattetti-multibyte", '>= 0.1.1', :require_as => "multibyte"
 
 dependency "RedCloth", :require_as => 'redcloth'
 

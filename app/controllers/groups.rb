@@ -31,6 +31,7 @@ class Groups < Application
     @group.users << session.user
     @group.leader = session.user
     if @group.save
+      @group.reload # :/ otherwise slug won't be set correctly
       redirect resource(@group), :message => {:notice => "Group was successfully created"}
     else
       message[:error] = "Group failed to be created"
