@@ -6,8 +6,6 @@ class Group
   property :created_at, DateTime, :lazy => true
   property :updated_at, DateTime, :lazy => true
   
-  has_slug :on => :name, :called => :grouplink
-
   belongs_to :leader, :class_name => 'User'
   has n,     :users,  :through => Resource
   # TODO remove before(:destroy) when :dependent => :destroy works
@@ -15,6 +13,9 @@ class Group
 
   validates_present     :leader
   validates_with_method :leader_is_member
+  validates_is_unique   :name
+
+  has_slug :on => :name, :called => :grouplink
 
 
   private

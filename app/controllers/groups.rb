@@ -43,7 +43,8 @@ class Groups < Application
     @group = Group.first(:grouplink => grouplink)
     raise NotFound unless @group
     if @group.update_attributes(group)
-       redirect resource(@group)
+      @group.reload
+      redirect resource(@group)
     else
       display @group, :edit
     end
