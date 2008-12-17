@@ -22,5 +22,8 @@ public/attachments/*
 .svn/*
 coverage/
 bin/
-gems/gems
-gems/specifications
+gems/gems/*/
+gems/specifications/*
+!gems/gems/thor*/
+!gems/specifications/thor*
+merb_profile_results
