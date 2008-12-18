@@ -21,7 +21,6 @@ public/attachments/*
 .hg/*
 .svn/*
 coverage/
-bin/
 gems/gems/*/
 gems/specifications/*
 merb_profile_results
