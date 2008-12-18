@@ -1,6 +1,6 @@
 h1. -crappy-+good+ interface.
 
-Well doesn't this just need some TLC. Right now I'm using pretty bare-bones html (well, haml) with the same stylesheet (almost) that comes default with merb. In a word, it looks hideous. But right now I care more about functionality.
+Well doesn't this just need some TLC. It's running Sass with "Compass":http://github.com/chriseppstein/compass now, but half the CSS is reset without a suitable replacement. Color and layout are in flux.
 
 h1. tagging
 
@@ -8,7 +8,7 @@ Documents and artifacts will support tagging, so you'll be able to see them toge
 
 h1. watchable groups
 
-at first, group members will just get emails every time a document/artifact is created/updated. But eventually, you'll be able to set watches on other groups, and set watches up based on tags.
+There's some really basic watch support, but it's *really* basic. at first, group members will just get emails every time a document/artifact is created/updated. But eventually, you'll be able to set watches on other groups, and set watches up based on tags.
 
 h1. ...and more.
 

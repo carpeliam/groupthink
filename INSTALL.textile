@@ -1,14 +1,3 @@
 h1. Installing groupthink
 
-The following gems are either declared or undeclared as dependencies.
-
-* "RedCloth":http://redcloth.org _for using Textile (you most likely already have this)_
-* "multibyte":http://github.com/mattetti/multibyte _for international character support for permalinks_
-* "will_paginate":http://github.com/mislav/will_paginate/tree/agnostic
-You'll need the 'agnostic' gem; installing from @sudo gem install@ will give you the ActiveRecord version. "These installation instructions worked for me":http://pastie.org/313697.
-* "dm-paperclip":http://github.com/krobertson/dm-paperclip
-This gem can be installed as @sudo gem install dm-paperclip@. You may have problems with this gem, depending on the version (I'm not sure if they're fixed). Somehow the file permissions for the files in this gem were only read/writable by the file owner, so if you're seeing that issue after installing, you'll have to manually change this. After navigating to the gems/dm-paperclip directory, a command like @find . -type f -print | xargs chmod 644@ should work (make sure you don't use chmod -R, that will modify the directories as well).
-* "dm-more":http://github.com/sam/dm-more:
-** dm-is-versioned
-** dm-is-nested_set
-I think this has a silent dependency on dm-adjust, so if you find this giving you problems, you'll need to install dm-adjust as well.
+As of merb 1.0.6.1, dependencies are now bundled with the app. You should just be able to thor merb:gem:redeploy and go. Sweet!

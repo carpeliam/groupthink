@@ -1,14 +1,10 @@
-%h1
+%h2
   Groups
-%table
-  %tr
-    %th Name
+%ul#groups
   - for group in @groups
-    %tr
-      %td
-        = link_to h(group.name), resource(group)
-      %td
-        = link_to 'Edit', resource(group, :edit)
+    %li
+      = link_to h(group.name), resource(group)
+      = link_to 'Edit', resource(group, :edit)
 
 = link_to 'New', resource(:groups, :new)
 

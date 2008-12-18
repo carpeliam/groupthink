@@ -18,6 +18,10 @@ Merb::Config.use do |c|
   # cookie session store configuration
   c[:session_secret_key]  = '92ca0560d9d08f131b14e69087801cb248401127'  # required for cookie session store
   # c[:session_id_key] = '_session_id' # cookie session id key, defaults to "_session_id"
+  c[:compass] = {
+    :stylesheets => 'app/stylesheets',
+    :compiled_stylesheets => 'public/stylesheets/compiled'
+  }
 end
 
 Merb::BootLoader.before_app_loads do

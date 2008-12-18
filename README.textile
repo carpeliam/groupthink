@@ -1,5 +1,3 @@
-See "INSTALL":INSTALL.textile if you're having a hard time installing any required gems.
-
 h1. groupthink.
 
 It's a resource management system for groups. Documents are like private wiki items in the sense that they support Textile, have history, and you can run diffs on them.

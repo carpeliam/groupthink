@@ -1,0 +1,30 @@
+!!! XML
+!!!
+%html{html_attrs}
+  %head
+    %title== groupthink:#{request.uri}
+    %meta{'http-equiv' => 'content-type', :content => 'text/html; charset=utf-8'}
+    %link{:rel => 'stylesheet', :href => "/stylesheets/compiled/master.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
+  %body
+    %div#root
+    
+      %div#container
+        %div#header
+          %h1.fleft
+            groupthink
+          
+          %div.fright
+            - if session.authenticated?
+              == Logged in as #{link_to h(session.user.login), resource(session.user, :edit)}
+              = link_to 'log out', url(:logout)
+            - else
+              == #{link_to 'log in', url(:login)} | #{link_to 'sign up', url(:signup)}
+              
+        = display_standard_messages
+        = catch_content :for_layout
+        
+      %div#root_footer
+    %div#footer
+      - taglines = ["it's fun, you'll like it.", "better than a puppy.", link_to('http://www.github.com/carpeliam/groupthink', 'http://www.github.com/carpeliam/groupthink')]
+      groupthink.
+      = taglines[rand(taglines.length)]

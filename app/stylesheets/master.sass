@@ -1,0 +1,50 @@
+@import compass/reset.sass
+@import compass/utilities.sass
+@import compass/layout.sass
+
+!offwhite = #dedede
+
+body
+  :background-color #182F42
+
+h1
+  :font-size 2em
+  :font-weight bold
+
+h2
+  :font-size 1.5em
+
+a
+  :color #3E698D
+  &:visited
+    :color #405567
+  &:hover
+    :color #839569
+
+ul
+  :padding-left 1em
+
+.fleft
+  :float left
+.fright
+  :float right
+
+#header
+  :background-color #3E698D
+  :padding 0.5ex
+  +clearfix
+  a
+    :color = !offwhite
+    &:hover
+      :color white
+
+#container
+  :font-family Verdana
+  :padding 1ex
+
++sticky-footer( 2em )
+
+#footer
+  :background-color #839569
+  a:hover
+    :color #182F42
