@@ -1,6 +1,6 @@
 %h1&= @version.title
-%p
-  %i== edited by #{h User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
+%div.details
+  == edited by #{h User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
 
 %p
   :textile

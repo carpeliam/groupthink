@@ -1,14 +1,10 @@
 %h1== Categories for #{h @group.name}
 
-%table
-  %tr
-    %th Name
+%ul.categories
   - for category in @categories
-    %tr
-      %td
-        = link_to h(category.name), resource(@group, category)
-      %td
-        = link_to 'Edit', resource(@group,  category, :edit)
+    %li
+      = link_to h(category.name), resource(@group, category)
+      = link_to 'Edit', resource(@group,  category, :edit)
 
 %p
   = link_to 'New', resource(@group, :categories, :new)

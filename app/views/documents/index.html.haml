@@ -3,18 +3,12 @@
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
 
-%table
-  %tr
-    %th Title
-  %tr
+%ul.documents
   - for document in @documents
-    %tr
-      %td
-        = link_to h(document.title), resource(group, @category, document)
-      %td
-        = link_to 'Edit', resource(group, @category, document, :edit)
-      %td
-        = delete_button resource(group, @category, document)
+    %li
+      = link_to h(document.title), resource(group, @category, document)
+      = link_to 'Edit', resource(group, @category, document, :edit)
+      = delete_button resource(group, @category, document)
 
 %p
   = link_to 'New', resource(group, @category, :documents, :new)

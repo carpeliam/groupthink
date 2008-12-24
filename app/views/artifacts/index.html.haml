@@ -3,14 +3,11 @@
 -# TODO replace group with @category.group when DM works
 - group = Group.get @category.group.id
 
-%table
-  %tr
+%ul.artifacts
   - for artifact in @artifacts
-    %tr
-      %td
-        = link_to 'Show', resource(group, @category, artifact)
-      %td
-        = link_to 'Edit', resource(group, @category, artifact, :edit)
+    %li
+      = link_to 'Show', resource(group, @category, artifact)
+      = link_to 'Edit', resource(group, @category, artifact, :edit)
 
 %p
   = link_to 'New', resource(group, @category, :artifacts, :new)

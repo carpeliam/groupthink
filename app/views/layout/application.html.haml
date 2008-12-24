@@ -20,8 +20,9 @@
             - else
               == #{link_to 'log in', url(:login)} | #{link_to 'sign up', url(:signup)}
               
-        = display_standard_messages
-        = catch_content :for_layout
+        %div#content
+          = display_standard_messages
+          = catch_content :for_layout
         
       %div#root_footer
     %div#footer

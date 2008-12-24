@@ -6,13 +6,21 @@
 
 body
   :background-color #182F42
+  :font-family 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Helvetica, sans-serif
+
+h1, h2
+  :font-family "Trebuchet MS", Verdana, Helvetica, sans-serif
 
 h1
   :font-size 2em
   :font-weight bold
+  :line-height 1.3em
 
 h2
   :font-size 1.5em
+
+p
+  :margin-bottom 1em
 
 a
   :color #3E698D
@@ -24,23 +32,38 @@ a
 ul
   :padding-left 1em
 
+acronym
+  :color #333
+  :border-bottom 1px dashed silver
+
 .fleft
   :float left
 .fright
   :float right
 
-#header
-  :background-color #3E698D
-  :padding 0.5ex
-  +clearfix
-  a
-    :color = !offwhite
-    &:hover
-      :color white
+#root
 
-#container
-  :font-family Verdana
-  :padding 1ex
+  #header
+    :background-color #3E698D
+    :padding 0.5ex
+    +clearfix
+    a
+      :color = !offwhite
+      &:hover
+        :color white
+
+  #container
+    :padding 1ex
+    
+    #content
+      :margin-top 1ex
+      :padding 1ex
+      :font 100%/1.5 Cambria, Georgia, serif
+      :background-color #ededed
+      :color black
+      :line-height 1em
+    div.details
+      :font italic 0.65em 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Helvetica, sans-serif
 
 +sticky-footer( 2em )
 
