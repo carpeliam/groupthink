@@ -2,7 +2,7 @@
 %div.details
   == edited by #{h User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
 
-%p
+%div.document
   :textile
     #{h @version.body}
 
