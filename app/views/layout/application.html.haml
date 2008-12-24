@@ -11,7 +11,7 @@
       %div#container
         %div#header
           %h1.fleft
-            groupthink
+            = link_to_unless_current 'groupthink', resource(:groups)
           
           %div.fright
             - if session.authenticated?
