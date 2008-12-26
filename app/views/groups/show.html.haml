@@ -1,6 +1,7 @@
 %h1&= @group.name
 
 %div
+  == #{@group.name} > categories
   %ul.cat_container
     %li.column= partial 'categories/list', :categories => @group.categories
 

@@ -1,10 +1,14 @@
+%p
+  %a.pin{:href => '#'} pin
+
 %h1
   = link_to h(@group.name), resource(@group)
 %h2
   &= @category.name
 
-%p= link_to 'Documents', resource(@group, @category, :documents)
-%p= link_to 'Artifacts', resource(@group, @category, :artifacts)
+%ul
+  %li= link_to 'Documents', resource(@group, @category, :documents)
+  %li= link_to 'Artifacts', resource(@group, @category, :artifacts)
 
 = link_to 'Edit',  resource(@group, @category, :edit)
 |

@@ -17,6 +17,10 @@
             - if session.authenticated?
               == Logged in as #{link_to h(session.user.login), resource(session.user, :edit)}
               = link_to 'log out', url(:logout)
+              %br
+              Your groups
+              - for group in session.user.groups
+                = link_to group.name, resource(group)
             - else
               == #{link_to 'log in', url(:login)} | #{link_to 'sign up', url(:signup)}
               
@@ -30,4 +34,5 @@
       groupthink.
       = taglines[rand(taglines.length)]
     %script{:type => "text/javascript", :src => "/javascripts/jquery.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/jquery.livequery.pack.js"}
     %script{:type => "text/javascript", :src => "/javascripts/groupthink.js"}
