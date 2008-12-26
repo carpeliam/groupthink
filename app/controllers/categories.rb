@@ -1,6 +1,6 @@
 class Categories < Application
   before :ensure_authenticated, :exclude => [:index, :show]
-  # provides :xml, :yaml, :js
+  provides :xml, :yaml, :js
   before :get_group
 
   def index
@@ -11,7 +11,7 @@ class Categories < Application
   def show(id)
     @category = Category.get(id)
     raise NotFound unless @category
-    display @category
+    display @category, :layout => (request.xhr? ? false : nil)
   end
 
   def new

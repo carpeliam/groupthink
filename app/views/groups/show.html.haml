@@ -1,5 +1,19 @@
 %h1&= @group.name
 
+%div
+  %ul.cat_container
+    %li.column= partial 'categories/list', :categories => @group.categories
+
+%p{:style => 'clear: both'}
+- if session.authenticated?
+  - if @group.users.include? session.user
+    = form_for(@group, :action => resource(@group, :leave), :method => :put) do
+      = submit 'Leave this group :('
+  - else
+    = form_for(@group, :action => resource(@group, :join), :method => :put) do
+      = submit 'Join this group :)'
+
+
 %p
   %b
     Members
@@ -9,15 +23,6 @@
         = link_to h(user.login), resource(user)
         = '*' if user == @group.leader
 
-%p= link_to 'Categories', resource(@group, :categories)
-
-- if session.authenticated?
-  - if @group.users.include? session.user
-    = form_for(@group, :action => resource(@group, :leave), :method => :put) do
-      = submit 'Leave this group :('
-  - else
-    = form_for(@group, :action => resource(@group, :join), :method => :put) do
-      = submit 'Join this group :)'
 
 = link_to 'Edit',  resource(@group, :edit)
 |

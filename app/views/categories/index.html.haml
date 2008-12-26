@@ -1,10 +1,6 @@
 %h1== Categories for #{h @group.name}
 
-%ul.categories
-  - for category in @categories
-    %li
-      = link_to h(category.name), resource(@group, category)
-      = link_to 'Edit', resource(@group,  category, :edit)
+= partial :list, :categories => @categories
 
 %p
   = link_to 'New', resource(@group, :categories, :new)

@@ -1,0 +1,7 @@
+%p
+  %a.pin{:href => '#'} pin
+%ul.categories
+  - for category in categories
+    %li
+      = link_to h(category.name), resource(@group, category)
+      = link_to 'Edit', resource(@group,  category, :edit)
