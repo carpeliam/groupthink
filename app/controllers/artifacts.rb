@@ -5,7 +5,7 @@ class Artifacts < Application
 
   def index
     @artifacts = @category.artifacts
-    display @artifacts
+    display @artifacts, :layout => (request.xhr? ? false : nil)
   end
 
   def show(id)
@@ -16,7 +16,7 @@ class Artifacts < Application
       raise NotFound unless (1..@artifact.versions.size).include? version
       @version = @artifact.versions[version - 1]
     end
-    display @artifact
+    display @artifact, :layout => (request.xhr? ? false : nil)
   end
 
   def diff(id)

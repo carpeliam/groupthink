@@ -11,7 +11,8 @@ class Categories < Application
   def show(id)
     @category = Category.get(id)
     raise NotFound unless @category
-    display @category, :layout => (request.xhr? ? false : nil)
+    opts = request.xhr? ? {:template => 'categories/xhr_show', :layout => false} : {}
+    display @category, opts
   end
 
   def new

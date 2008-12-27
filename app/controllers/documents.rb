@@ -5,7 +5,7 @@ class Documents < Application
 
   def index
     @documents = (@category.nil?) ? Document.all : @category.documents
-    display @documents
+    display @documents, :layout => (request.xhr? ? false : nil)
   end
 
   def show(id)
@@ -16,7 +16,7 @@ class Documents < Application
       raise NotFound unless (1..@document.versions.size).include? version
       @version = @document.versions[version - 1]
     end
-    display @document
+    display @document, :layout => (request.xhr? ? false : nil)
   end
   
   def diff(id)

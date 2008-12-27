@@ -1,3 +1,7 @@
+%p
+  %a.pin{:href => '#'} pin
+  %a.close{:href => '#'} close
+
 %h1&= @version.title
 %div.details
   == edited by #{h User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
