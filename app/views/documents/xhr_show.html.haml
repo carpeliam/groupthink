@@ -1,0 +1,20 @@
+%li.column
+  %p
+    %a.pin{:href => '#'} pin
+    %a.close{:href => '#'} close
+
+  %h1&= @version.title
+  %div.details
+    == edited by #{h User.get(@version.user_id).login} #{show_time_ago @version.updated_at}
+
+  %div.document
+    :textile
+      #{h @version.body}
+
+  = partial 'common/versions', :model => @document
+
+  -# TODO replace group with @category.group when DM works
+  - group = Group.get @category.group.id
+
+
+  = link_to 'Watch!', resource(group, @category, @document, :watch)

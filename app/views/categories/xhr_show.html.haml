@@ -9,5 +9,5 @@
     &= @category.name
 
   %ul
-    %li= link_to 'Documents', resource(@group, @category, :documents)
-    %li= link_to 'Artifacts', resource(@group, @category, :artifacts)
+    %li= link_to 'Documents', resource(@group, @category, :documents), :title => "#{@category.name}_docs"
+    %li= link_to 'Artifacts', resource(@group, @category, :artifacts), :title => "#{@category.name}_artifacts"

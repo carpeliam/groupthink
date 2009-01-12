@@ -1,0 +1,17 @@
+%li.column
+  %p
+    %a.pin{:href => '#'} pin
+    %a.close{:href => '#'} close
+
+  %h1== #{h @category.name} Documents
+
+  -# TODO replace group with @category.group when DM works
+  - group = Group.get @category.group.id
+
+  %ul.documents
+    - for document in @documents
+      %li
+        = link_to h(document.title), resource(group, @category, document), :title => "#{@category.name}_docs:#{document.title}"
+        = link_to 'Edit', resource(group, @category, document, :edit)
+        = link_to 'Delete', resource(group, @category, document, :delete), :method => 'delete', :rel => resource(group, @category, document), :confirm => "Are you sure you wish to delete this item?"
+        

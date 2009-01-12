@@ -1,11 +1,12 @@
 class Documents < Application
   before :ensure_authenticated, :exclude => [:index, :show, :diff]
-  # provides :xml, :yaml, :js
+  provides :xml, :yaml, :js, :json
   before :get_category
 
   def index
     @documents = (@category.nil?) ? Document.all : @category.documents
-    display @documents, :layout => (request.xhr? ? false : nil)
+    opts = request.xhr? ? {:template => 'documents/xhr_index', :layout => false} : {}
+    display @documents, opts
   end
 
   def show(id)
@@ -16,7 +17,8 @@ class Documents < Application
       raise NotFound unless (1..@document.versions.size).include? version
       @version = @document.versions[version - 1]
     end
-    display @document, :layout => (request.xhr? ? false : nil)
+    opts = request.xhr? ? {:template => 'documents/xhr_show', :layout => false} : {}
+    display @document, opts
   end
   
   def diff(id)
@@ -78,7 +80,15 @@ class Documents < Application
     if @document.destroy
       #TODO replace group with @category.group when DM works
       group = Group.get @category.group.id
-      redirect resource(group, @category, :documents)
+      Merb.logger.info content_type
+      case content_type
+      when :json
+        # FIXME escape the title
+        render({:message => "#{@document.title} deleted successfully."}.to_json)
+      else
+        redirect resource(group, @category, :documents),
+          :message => {:notice => 'Deleted successfully.'}
+      end
     else
       raise InternalServerError
     end
