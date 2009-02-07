@@ -18,7 +18,9 @@ dependency "merb-auth-slice-password", merb_gems_version
 #dependency "merb-param-protection", merb_gems_version
 #dependency "merb-exceptions", merb_gems_version
 dependency "merb-haml", merb_gems_version
+
 dependency "merb_datamapper", merb_gems_version
+dependency "do_mysql", '0.9.11'
 
 #dependency "merb-parts", '0.9.8'
  
