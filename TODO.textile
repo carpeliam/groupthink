@@ -1,3 +1,5 @@
+A public issue/story tracker can be found "here":http://www.pivotaltracker.com/projects/5756.
+
 h1. -crappy-+good+ interface.
 
 Well doesn't this just need some TLC. It's running Sass with "Compass":http://github.com/chriseppstein/compass now, but half the CSS is reset without a suitable replacement. Color and layout are in flux.
