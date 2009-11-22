@@ -6,7 +6,7 @@
 %ul.artifacts
   - for artifact in @artifacts
     %li
-      = link_to 'Show', resource(group, @category, artifact)
+      = link_to artifact.title, resource(group, @category, artifact)
       = link_to 'Edit', resource(group, @category, artifact, :edit)
 
 %p
