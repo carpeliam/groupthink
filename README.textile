@@ -2,6 +2,8 @@ h1. groupthink.
 
 It's a resource management system for groups. Documents are like private wiki items in the sense that they support Textile, have history, and you can run diffs on them.
 
+I'm currently reworking groupthink to be a rails3 app running on top of DataMapper/jQuery. Luckily, not too much needs to be done. Stay tuned.
+
 h2. file uploading with dm-paperclip
 
 works. There's a potential "bug":http://merb.lighthouseapp.com/projects/7433-merb/tickets/1025 in testing this, and I haven't added validations yet, but that's what happens when we're just getting off the ground. Files are called "artifacts", couldn't really think of a better name.
